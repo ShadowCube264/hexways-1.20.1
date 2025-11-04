@@ -5,7 +5,10 @@
 	"name": "Hexways",
 	"description": "Portal Hex Addon addon for Hex Casting",
 	"authors": [
-		"Stickia"
+		"Stickia",
+		"Thank you too Sam for the Portal Staff",
+		"Thank you too ChuijkYahus for the zh_cn translation",
+		"And Thanks to Nano for code help"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",

@@ -21,13 +21,13 @@ public class PatternRegistry {
     private static final Map<ResourceLocation, ActionRegistryEntry> PATTERNS = new LinkedHashMap<>();
 
     //portal makers
-    public static final HexPattern OP_ONE_WAY = make("awqwqwadadadaadadaqwdee",HexDir.EAST,"oponeway",new OpOneWayPortal());
-    public static final HexPattern OP_TWO_WAY = make("wdeeqawqwqwadeaqadeaedaqae",HexDir.WEST,"optwoway",new OpTwoWayPortal());
-    public static final HexPattern OP_SCRY_PORTAL = make("eedwwdwewewd", HexDir.NORTH_EAST,"opscryportal", new OpScryPortal());
+    public static final HexPattern OP_ONE_WAY = make("awqwqwadadadaadadaqwdee",HexDir.EAST,"onewayportal",new OpOneWayPortal());
+    public static final HexPattern OP_TWO_WAY = make("wdeeqawqwqwadeaqadeaedaqae",HexDir.WEST,"twowayportal",new OpTwoWayPortal());
+    public static final HexPattern OP_SCRY_PORTAL = make("eedwwdwewewd", HexDir.NORTH_EAST,"summonscry", new OpScryPortal());
 
     //portal editors
-    public static final HexPattern OP_MOVE_IN_PORTAL = make("qqawwawqwqwaewaw",HexDir.NORTH_EAST,"opmoveinportal", new OpMoveInput());
-    public static final HexPattern OP_MOVE_OUT_PORTAL = make("eedwwdwewewdqwdw",HexDir.NORTH_EAST,"opmoveoutportal", new OpMoveOutput());
+    public static final HexPattern OP_MOVE_IN_PORTAL = make("qqawwawqwqwaewaw",HexDir.NORTH_EAST,"moveportalinput", new OpMoveInput());
+    public static final HexPattern OP_MOVE_OUT_PORTAL = make("eedwwdwewewdqwdw",HexDir.NORTH_EAST,"moveportaloutput", new OpMoveOutput());
 
 
     /*TODO: MAKE THESE PATTERNS:

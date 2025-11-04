@@ -1,0 +1,97 @@
+{
+  "name": "portalhexaddon.entry.hexways",
+  "category": "hexcasting:patterns/spells",
+  "icon": "immersive_portals:portal_helper",
+  "sortnum": 0,
+  "advancement": "hexcasting:root",
+  "read_by_default": true,
+  "pages": [
+    {
+      "title": "portalhexaddon.page.hexways.pageintrotitle",
+      "type": "text",
+      "text": "portalhexaddon.page.hexways.pageintro"
+    },
+    {
+      "title": "portalhexaddon.page.hexways.portalambittitle",
+      "type": "text",
+      "text": "portalhexaddon.page.hexways.portalambit"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:twowayportal",
+      "anchor": "portalhexaddon:twowayportal",
+      "input": "vec, vec, vec, num",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.twowayportal"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:onewayportal",
+      "anchor": "portalhexaddon:onewayportal",
+      "input": "vec, vec, vec, num",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.onewayportal"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:summonscry",
+      "anchor": "portalhexaddon:summonscry",
+      "input": "vec, vec, vec, num",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.summonscry"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:moveportalinput",
+      "anchor": "portalhexaddon:moveportalinput",
+      "input": "entity (Portal), vec",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.moveportalinput"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:rotateportal",
+      "anchor": "portalhexaddon:rotateportal",
+      "input": "entity (Portal), vec",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.rotateportal"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:setportalsides",
+      "anchor": "portalhexaddon:setportalsides",
+      "input": "entity (Portal), num, num",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.setportalsides"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:resizeportal",
+      "anchor": "portalhexaddon:resizeportal",
+      "input": "entity (Portal), num, num",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.resizeportal"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:removeportal",
+      "anchor": "portalhexaddon:removeportal",
+      "input": "entity (Portal)",
+      "output": "",
+      "text": "portalhexaddon.page.hexways.removeportal"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:getoutputinfo",
+      "anchor": "portalhexaddon:getoutputinfo",
+      "input": "entity (Portal)",
+      "output": "entity",
+      "text": "portalhexaddon.page.hexways.getoutputinfo"
+    },
+    {
+      "title": "portalhexaddon.page.hexways.getoutputinfoconttitle",
+      "type": "text",
+      "text": "portalhexaddon.page.hexways.getoutputinfocont"
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "replace": false,
   "values": [
-    "hexways:oponeway",
-    "hexways:optwoway"
+    "hexways:onewayportal",
+    "hexways:twowayportal"
   ]
 }
