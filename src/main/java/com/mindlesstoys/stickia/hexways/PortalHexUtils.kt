@@ -44,6 +44,7 @@ class PortalHexUtils {
             }
             return listOf(PrtRotCors,PrtRotCorsCors)
         }
+        // $ Double-sidedness and two-ways handled in the movement spell, rather than here
         fun moveOrSetPrt(prt: Portal?, pos: Vec3, out: Boolean){
             if (prt != null && prt is HexPortal){
                 if (out){

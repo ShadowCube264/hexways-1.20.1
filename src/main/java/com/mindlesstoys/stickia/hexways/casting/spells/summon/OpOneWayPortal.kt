@@ -54,6 +54,7 @@ class OpOneWayPortal : SpellAction {
             )
             PortalHexUtils.MakePortalNGon(portalIn,6 ,0.0)
 
+            // $ Really? These need two entities?? Alright..
             val portalInOp = PortalAPI.createFlippedPortal(portalIn)
 
             portalIn.originWorld.addFreshEntity(portalInOp)
