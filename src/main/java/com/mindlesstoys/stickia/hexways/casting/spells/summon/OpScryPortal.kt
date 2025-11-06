@@ -15,7 +15,7 @@ import qouteall.imm_ptl.core.api.PortalAPI
 import qouteall.imm_ptl.core.portal.Portal
 
 class OpScryPortal : SpellAction {
-    override val argc = 3
+    override val argc = 4
     override fun execute(
         args: List<Iota>,
         env: CastingEnvironment,
@@ -23,8 +23,9 @@ class OpScryPortal : SpellAction {
         val prtPos: Vec3 = args.getVec3(0,argc)
         val prtPosOut: Vec3 = args.getVec3(1,argc)
         val prtRot: Vec3 = args.getVec3(2,argc)
+        val prtSize: Double = args.getDoubleBetween(3,1.0/10.0,10.0,argc)
 
-        val cost = (prtPos.distanceTo(prtPosOut)*MediaConstants.DUST_UNIT/2).toLong()
+        val cost = (prtSize*prtPos.distanceTo(prtPosOut)*MediaConstants.DUST_UNIT/2).toLong()
 
         val prtPos3f = Vector3f(prtPos.x.toFloat(), prtPos.y.toFloat(), prtPos.z.toFloat())
 
@@ -32,14 +33,14 @@ class OpScryPortal : SpellAction {
         env.assertVecInRange(prtPosOut)
 
         return SpellAction.Result(
-            Spell(prtPos3f,prtPosOut,prtRot),
+            Spell(prtPos3f,prtPosOut,prtRot, prtSize),
             cost,
             listOf(ParticleSpray.burst(env.mishapSprayPos(), 1.0), ParticleSpray.burst(prtPos, 1.0))
         )
 
     }
 
-    data class Spell(val prtPos: Vector3f, val prtPosOut: Vec3, val prtRot: Vec3) : RenderedSpell {
+    data class Spell(val prtPos: Vector3f, val prtPosOut: Vec3, val prtRot: Vec3, val prtSize: Double) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
             val portalIn: Portal? = HEXPORTAL_ENTITY_TYPE.create(env.world)
 
@@ -49,8 +50,8 @@ class OpScryPortal : SpellAction {
             portalIn.setOrientationAndSize(
                 PortalVecRotate(prtRot)[0],
                 PortalVecRotate(prtRot)[1],
-                1.0,
-                1.0
+                prtSize,
+                prtSize
             )
             PortalHexUtils.MakePortalNGon(portalIn,6 ,0.0)
 
