@@ -6,7 +6,7 @@
   "hexcasting.action.hexways:removeportal": "Remove Portal",
   "hexcasting.action.hexways:rotateportal": "Rotate Portal",
   "hexcasting.action.hexways:moveportalinput": "Move Portal",
-  "hexcasting.action.hexways:moveportaloutput": "Move Destination",
+  "hexcasting.action.hexways:moveportaloutput": "Alter Destination",
   "hexcasting.action.hexways:summonscry": "Summon Scry",
   "hexcasting.action.hexways:getoutputinfo": "Get Output Info",
   "hexcasting.action.hexways:resizeportal": "Resize Portal",

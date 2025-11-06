@@ -11,6 +11,7 @@ import qouteall.imm_ptl.core.portal.Portal
 import qouteall.imm_ptl.core.portal.PortalManipulation
 import com.mindlesstoys.stickia.hexways.casting.mishaps.MishapPortalEntity
 import com.mindlesstoys.stickia.hexways.PortalHexUtils
+import com.mindlesstoys.stickia.hexways.entites.HexPortal
 
 class OpRotatePortal : SpellAction {
     /**
@@ -25,7 +26,7 @@ class OpRotatePortal : SpellAction {
 
         env.assertEntityInRange(prtEnt)
 
-        if (prtEnt.type !== Portal.entityType) {
+        if (prtEnt !is HexPortal) {
             throw MishapPortalEntity(prtEnt)
         }
 
