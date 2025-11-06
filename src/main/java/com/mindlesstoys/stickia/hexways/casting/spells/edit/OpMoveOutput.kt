@@ -24,6 +24,7 @@ class OpMoveOutput : SpellAction {
         if (prt !is HexPortal){
             throw MishapPortalEntity.of(prt)
         }
+        env.assertEntityInRange(prt)
         env.assertVecInRange(prtPos)
         val cost = (prt.destPos.distanceTo(prtPos)*MediaConstants.SHARD_UNIT).toLong()
 

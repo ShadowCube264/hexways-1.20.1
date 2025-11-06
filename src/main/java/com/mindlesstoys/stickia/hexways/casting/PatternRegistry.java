@@ -7,6 +7,7 @@ import at.petrak.hexcasting.common.lib.hex.HexActions;
 import com.mindlesstoys.stickia.hexways.Hexways;
 import com.mindlesstoys.stickia.hexways.casting.spells.edit.OpMoveInput;
 import com.mindlesstoys.stickia.hexways.casting.spells.edit.OpMoveOutput;
+import com.mindlesstoys.stickia.hexways.casting.spells.edit.OpRotatePortal;
 import com.mindlesstoys.stickia.hexways.casting.spells.summon.OpOneWayPortal;
 import com.mindlesstoys.stickia.hexways.casting.spells.summon.OpScryPortal;
 import com.mindlesstoys.stickia.hexways.casting.spells.summon.OpTwoWayPortal;
@@ -28,6 +29,7 @@ public class PatternRegistry {
     //portal editors
     public static final HexPattern OP_MOVE_IN_PORTAL = make("qqawwawqwqwaewaw",HexDir.NORTH_EAST,"moveportalinput", new OpMoveInput());
     public static final HexPattern OP_MOVE_OUT_PORTAL = make("eedwwdwewewdqwdw",HexDir.NORTH_EAST,"moveportaloutput", new OpMoveOutput());
+    public static final HexPattern OP_ROTATE_PORTAL = make("waqqedwewewdqwdw", HexDir.EAST, "rotateportal", new OpRotatePortal()); // $ ROTAT E
 
 
     /*TODO: MAKE THESE PATTERNS:
