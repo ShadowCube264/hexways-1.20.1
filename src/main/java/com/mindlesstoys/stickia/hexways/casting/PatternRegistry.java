@@ -5,12 +5,8 @@ import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 import com.mindlesstoys.stickia.hexways.Hexways;
-import com.mindlesstoys.stickia.hexways.casting.spells.edit.OpMoveInput;
-import com.mindlesstoys.stickia.hexways.casting.spells.edit.OpMoveOutput;
-import com.mindlesstoys.stickia.hexways.casting.spells.edit.OpRotatePortal;
-import com.mindlesstoys.stickia.hexways.casting.spells.summon.OpOneWayPortal;
-import com.mindlesstoys.stickia.hexways.casting.spells.summon.OpScryPortal;
-import com.mindlesstoys.stickia.hexways.casting.spells.summon.OpTwoWayPortal;
+import com.mindlesstoys.stickia.hexways.casting.spells.edit.*;
+import com.mindlesstoys.stickia.hexways.casting.spells.summon.*;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import at.petrak.hexcasting.api.casting.castables.Action;
@@ -30,7 +26,7 @@ public class PatternRegistry {
     public static final HexPattern OP_MOVE_IN_PORTAL = make("qqawwawqwqwaewaw",HexDir.NORTH_EAST,"moveportalinput", new OpMoveInput());
     public static final HexPattern OP_MOVE_OUT_PORTAL = make("eedwwdwewewdqwdw",HexDir.NORTH_EAST,"moveportaloutput", new OpMoveOutput());
     public static final HexPattern OP_ROTATE_PORTAL = make("waqqedwewewdqwdw", HexDir.EAST, "rotateportal", new OpRotatePortal()); // $ ROTAT E
-
+    public static final HexPattern OP_SET_PORTAL_SIDES = make("waqqqadawqadadaq", HexDir.EAST, "setportalsides", new OpSetPortalSides());
 
     /*TODO: MAKE THESE PATTERNS:
      *ROTATEPORTAL, Portal

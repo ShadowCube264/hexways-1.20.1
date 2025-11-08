@@ -66,6 +66,8 @@ class OpScryPortal : SpellAction {
             portalIn.isInteractable = false
             portalInOp.isInteractable = false
 
+            portalInOp.setOrientation(PortalVecRotate(prtRot)[0], PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
+
             portalIn.originWorld.addFreshEntity(portalIn)
             portalIn.originWorld.addFreshEntity(portalInOp)
         }

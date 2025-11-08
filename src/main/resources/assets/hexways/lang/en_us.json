@@ -10,7 +10,7 @@
   "hexcasting.action.hexways:summonscry": "Summon Scry",
   "hexcasting.action.hexways:getoutputinfo": "Get Output Info",
   "hexcasting.action.hexways:resizeportal": "Resize Portal",
-  "hexcasting.action.hexways:setportalsides": "Set Sides Portal",
+  "hexcasting.action.hexways:setportalsides": "Set Portal Sides",
   "hexcasting.action.hexways:rotatesideofportal": "Rotate Output :weedHexxy:",
 
   "hexways.entry.hexways": "Hex Ways",

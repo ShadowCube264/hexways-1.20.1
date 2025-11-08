@@ -56,6 +56,7 @@ class OpOneWayPortal : SpellAction {
 
             // $ Really? These need two entities?? Alright..
             val portalInOp = PortalAPI.createFlippedPortal(portalIn)
+            portalInOp.setOrientation(PortalVecRotate(prtRot)[0], PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0))) // $ and why can Immersive Portals not do mirroring right?
 
             portalIn.originWorld.addFreshEntity(portalInOp)
             portalIn.originWorld.addFreshEntity(portalIn)
