@@ -22,7 +22,6 @@ class OpSetPortalSides : SpellAction {
     override val argc: Int = 3
     private val cost: Long = 0
 
-    //TODO: use radians instead
     override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val prtEnt: Entity = args.getEntity(0,argc)
         val prtSides: Int = args.getIntBetween(1,3,16,argc)

@@ -27,6 +27,7 @@ public class PatternRegistry {
     public static final HexPattern OP_MOVE_OUT_PORTAL = make("eedwwdwewewdqwdw",HexDir.NORTH_EAST,"moveportaloutput", new OpMoveOutput());
     public static final HexPattern OP_ROTATE_PORTAL = make("waqqedwewewdqwdw", HexDir.EAST, "rotateportal", new OpRotatePortal()); // $ ROTAT E
     public static final HexPattern OP_SET_PORTAL_SIDES = make("waqqqadawqadadaq", HexDir.EAST, "setportalsides", new OpSetPortalSides());
+    public static final HexPattern OP_REMOVE_PORTAL = make("wdeeqawqwqwaedaqwqad", HexDir.WEST, "removeportal", new OpRemovePortal());
 
     /*TODO: MAKE THESE PATTERNS:
      *ROTATEPORTAL, Portal
