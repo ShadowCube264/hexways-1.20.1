@@ -28,13 +28,9 @@ public class PatternRegistry {
     public static final HexPattern OP_ROTATE_PORTAL = make("waqqedwewewdqwdw", HexDir.EAST, "rotateportal", new OpRotatePortal()); // $ ROTAT E
     public static final HexPattern OP_SET_PORTAL_SIDES = make("waqqqadawqadadaq", HexDir.EAST, "setportalsides", new OpSetPortalSides());
     public static final HexPattern OP_REMOVE_PORTAL = make("wdeeqawqwqwaedaqwqad", HexDir.WEST, "removeportal", new OpRemovePortal());
+    public static final HexPattern OP_RESIZE_PORTAL = make("weaqaweewwawqwaw", HexDir.WEST, "resizeportal", new OpResizePortal());
 
-    /*TODO: MAKE THESE PATTERNS:
-     *ROTATEPORTAL, Portal
-     *
-     *
-     *
-    */
+    
     static public void init() {
         for (Map.Entry<ResourceLocation, ActionRegistryEntry> entry : PATTERNS.entrySet()) {
             Registry.register(HexActions.REGISTRY, entry.getKey(), entry.getValue());

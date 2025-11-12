@@ -66,11 +66,11 @@ class OpRotatePortal : SpellAction {
                 flipPrt.reloadAndSyncToClient()
             }
             if (revPrt !== null) {
-                revPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
+                revPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
                 revPrt.reloadAndSyncToClient()
             }
             if (revFlipPrt !== null) {
-                revFlipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
+                revFlipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
                 revFlipPrt.reloadAndSyncToClient()
             }
         }
