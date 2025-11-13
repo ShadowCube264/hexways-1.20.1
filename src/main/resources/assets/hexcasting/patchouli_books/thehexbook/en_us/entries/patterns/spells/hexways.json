@@ -42,6 +42,14 @@
     },
     {
       "type": "hexcasting:pattern",
+      "op_id": "hexways:rotateportal",
+      "anchor": "hexways:rotateportal",
+      "input": "entity (Portal), vec",
+      "output": "",
+      "text": "hexways.page.hexways.rotateportal"
+    },
+    {
+      "type": "hexcasting:pattern",
       "op_id": "hexways:moveportalinput",
       "anchor": "hexways:moveportalinput",
       "input": "entity (Portal), vec",
@@ -56,13 +64,17 @@
       "output": "",
       "text": "hexways.page.hexways.moveportaloutput"
     },
-    {
+        {
       "type": "hexcasting:pattern",
-      "op_id": "hexways:rotateportal",
-      "anchor": "hexways:rotateportal",
-      "input": "entity (Portal), vec",
-      "output": "",
-      "text": "hexways.page.hexways.rotateportal"
+      "op_id": "hexways:getoutputinfo",
+      "anchor": "hexways:getoutputinfo",
+      "input": "entity (Portal)",
+      "output": "vec",
+      "text": "hexways.page.hexways.getoutputinfo"
+    },
+    {
+      "type": "text",
+      "text": "hexways.page.hexways.getoutputinfocont"
     },
     {
       "type": "hexcasting:pattern",
@@ -87,19 +99,6 @@
       "input": "entity (Portal)",
       "output": "",
       "text": "hexways.page.hexways.removeportal"
-    },
-    {
-      "type": "hexcasting:pattern",
-      "op_id": "hexways:getoutputinfo",
-      "anchor": "hexways:getoutputinfo",
-      "input": "entity (Portal)",
-      "output": "vec",
-      "text": "hexways.page.hexways.getoutputinfo"
-    },
-    {
-      "title": "hexways.page.hexways.getoutputinfoconttitle",
-      "type": "text",
-      "text": "hexways.page.hexways.getoutputinfocont"
     }
   ]
 }
