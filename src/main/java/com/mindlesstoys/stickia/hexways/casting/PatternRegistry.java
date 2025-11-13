@@ -7,6 +7,7 @@ import at.petrak.hexcasting.common.lib.hex.HexActions;
 import com.mindlesstoys.stickia.hexways.Hexways;
 import com.mindlesstoys.stickia.hexways.casting.spells.edit.*;
 import com.mindlesstoys.stickia.hexways.casting.spells.summon.*;
+import com.mindlesstoys.stickia.hexways.casting.spells.info.*;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import at.petrak.hexcasting.api.casting.castables.Action;
@@ -29,7 +30,7 @@ public class PatternRegistry {
     public static final HexPattern OP_SET_PORTAL_SIDES = make("waqqqadawqadadaq", HexDir.EAST, "setportalsides", new OpSetPortalSides());
     public static final HexPattern OP_REMOVE_PORTAL = make("wdeeqawqwqwaedaqwqad", HexDir.WEST, "removeportal", new OpRemovePortal());
     public static final HexPattern OP_RESIZE_PORTAL = make("weaqaweewwawqwaw", HexDir.WEST, "resizeportal", new OpResizePortal());
-
+    public static final HexPattern OP_OUTPUT_INFO = make("waqqedwewewdawdwwwdw", HexDir.EAST, "getoutputinfo", new OpOutputInfo());
     
     static public void init() {
         for (Map.Entry<ResourceLocation, ActionRegistryEntry> entry : PATTERNS.entrySet()) {

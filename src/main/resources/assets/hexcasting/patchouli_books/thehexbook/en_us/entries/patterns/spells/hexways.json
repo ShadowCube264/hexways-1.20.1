@@ -93,7 +93,7 @@
       "op_id": "hexways:getoutputinfo",
       "anchor": "hexways:getoutputinfo",
       "input": "entity (Portal)",
-      "output": "entity",
+      "output": "vec",
       "text": "hexways.page.hexways.getoutputinfo"
     },
     {

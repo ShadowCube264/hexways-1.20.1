@@ -8,7 +8,7 @@
   "hexcasting.action.hexways:moveportalinput": "Move Portal",
   "hexcasting.action.hexways:moveportaloutput": "Alter Destination",
   "hexcasting.action.hexways:summonscry": "Summon Scry",
-  "hexcasting.action.hexways:getoutputinfo": "Get Output Info",
+  "hexcasting.action.hexways:getoutputinfo": "Chell's Purification",
   "hexcasting.action.hexways:resizeportal": "Resize Portal",
   "hexcasting.action.hexways:setportalsides": "Set Portal Sides",
 
@@ -22,7 +22,7 @@
   "hexways.page.hexways.portalambit": "Astoundingly, these portals... the range of my _Hexes may flow through them, albeit diminished. It seems my influence stretches outside to the other end of a portal, at half the remaining distance from me. As such, I may find the equation \"(32 - my location)/2\" to suffice for the added reach.",
   "hexways.page.hexways.setportalsides": "As, well, $(italic)familiar/$, I am with hexagons, sadly they don't fit every situation. But with this spell, I may alter the count of a portal's sides and roll, free of cost.",
   "hexways.page.hexways.resizeportal": "Passing a portal, height, and width, I may change the size of the portal, reverting it to a hexagonal shape, curiously. Costs shards equal to the average of the height and width.",
-  "hexways.page.hexways.getoutputinfo": "This nifty pattern returns a portal's output portal, or its output location as a vector if there is no output portal. This could be useful combined with Portal Ambit. Costs no _media.",
+  "hexways.page.hexways.getoutputinfo": "This nifty pattern returns a portal's output location as a vector (which will be the location of the output portal, for a 2-way portal). This could be useful combined with Portal Ambit. Costs no _media.",
   "hexways.page.hexways.getoutputinfocont": "After confusion, I concluded that this pattern works the best with Move Portal, due to getting the output portal, if it is a 2-way portal. Another use for this pattern may be for raycasts, since the casts don't pass through portals, but with this, I can emulate the raycast.",
   "hexways.page.hexways.rotateportal": "Ah, fickle rotation vectors. To my luck, I may use this spell to change the rotation of a given portal. Notably, it rotates its output as well, and at no cost.",
   "hexways.page.hexways.portalambittitle": "Portal Ambit",
