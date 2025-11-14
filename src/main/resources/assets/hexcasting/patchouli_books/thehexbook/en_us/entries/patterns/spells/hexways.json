@@ -1,7 +1,7 @@
 {
   "name": "hexways.entry.hexways",
   "category": "hexcasting:patterns/spells",
-  "icon": "immersive_portals:portal_helper",
+  "icon": "minecraft:end_portal_frame",
   "sortnum": 0,
   "advancement": "hexcasting:root",
   "read_by_default": true,

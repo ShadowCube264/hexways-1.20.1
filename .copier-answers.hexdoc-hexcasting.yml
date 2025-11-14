@@ -1,0 +1,18 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+# https://copier.readthedocs.io/en/stable/updating/#never-change-the-answers-file-manually
+_commit: v0.2.0
+_src_path: gh:hexdoc-dev/hexdoc-hexcasting-template
+advanced: false
+github_repo: hexways-1.20.1
+github_user: ShadowCube264
+gradle_deps_type: gradle.properties
+gradle_hex_version_key: hex_casting
+gradle_mod_version_key: mod_version
+main_branch: main
+minecraft_version: 1.20.1
+minecraft_version_in_mod_version: false
+mod_description: Portal Hex Addon addon for Hex Casting
+mod_display_name: Hexways
+modid: hexways
+multiloader: false
+pattern_registry_path: main/java/com/mindlesstoys/stickia/hexways/casting/PatternRegistry.java
