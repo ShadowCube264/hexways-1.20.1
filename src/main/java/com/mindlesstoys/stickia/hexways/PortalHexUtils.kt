@@ -12,6 +12,7 @@ import kotlin.math.sin
 
 class PortalHexUtils {
     companion object {
+        // $ TODO: Rework for nicer portal flipping
         fun MakePortalNGon(portal: Portal, sides: Int, roll: Double) { //GOTTEN FROM IMMERSIVE PORTALS PortalCommand
             val shape = GeometryPortalShape()
             val twoPi = Math.PI * 2

@@ -39,7 +39,6 @@ class PortalAmbit(private val env: CastingEnvironment) : IsVecInRange {
         }
         return inAmbitMaybe
     }
-    // $ I'm not so sure about this..?
     private object Keygen { //code from HexSky
         val rand = Random(2819038167)
         fun randid() = rand.nextInt()
