@@ -58,8 +58,8 @@ class OpTwoWayPortal : SpellAction {
             val portalOut = PortalAPI.createReversePortal(portalIn)
             val portalOutOp = PortalAPI.createFlippedPortal(portalOut)
 
-            portalInOp.setOrientation(PortalVecRotate(prtRot)[0], PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
-            portalOut.setOrientation(PortalVecRotate(prtRot)[0], PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
+            PortalHexUtils.MakePortalNGon(portalInOp,6,0.0,true)
+            PortalHexUtils.MakePortalNGon(portalOut,6,0.0,true)
 
             portalIn.originWorld.addFreshEntity(portalIn)
             portalIn.originWorld.addFreshEntity(portalInOp)

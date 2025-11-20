@@ -61,14 +61,14 @@ class OpResizePortal : SpellAction {
             if (flipPrt != null) {
                 flipPrt.width = prtWidth
                 flipPrt.height = prtHeight
-                PortalHexUtils.MakePortalNGon(flipPrt, 6, 0.0)
+                PortalHexUtils.MakePortalNGon(flipPrt, 6, 0.0, true)
                 flipPrt.reloadAndSyncToClient()
             }
 
             if (revPrt != null) {
                 revPrt.width = prtWidth
                 revPrt.height = prtHeight
-                PortalHexUtils.MakePortalNGon(revPrt, 6, 0.0)
+                PortalHexUtils.MakePortalNGon(revPrt, 6, 0.0, true)
                 revPrt.reloadAndSyncToClient()
             }
             if (revFlipPrt != null && revFlipPrt != prt) {

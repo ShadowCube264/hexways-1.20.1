@@ -65,11 +65,11 @@ class OpRotatePortal : SpellAction {
                 prt.reloadAndSyncToClient()
 
                 if (flipPrt !== null) {
-                    flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
+                    flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
                     flipPrt.reloadAndSyncToClient()
                 }
                 if (revPrt !== null) {
-                    revPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
+                    revPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
                     revPrt.reloadAndSyncToClient()
                 }
                 if (revFlipPrt !== null) {
@@ -84,7 +84,7 @@ class OpRotatePortal : SpellAction {
                 prt.reloadAndSyncToClient()
 
                 if (flipPrt !== null) {
-                    flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
+                    flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
                     flipPrt.reloadAndSyncToClient()
                 }
                 if (revPrt !== null) {
@@ -92,17 +92,8 @@ class OpRotatePortal : SpellAction {
                     revPrt.reloadAndSyncToClient()
                 }
                 if (revFlipPrt !== null) {
-                    val otherQuat = revFlipPrt.getOrientationRotation()
                     revFlipPrt.setRotation(quat)
                     revFlipPrt.reloadAndSyncToClient()
-
-                    prt.setOtherSideOrientation(otherQuat)
-                    prt.reloadAndSyncToClient()
-
-                    if (flipPrt !== null) {
-                        flipPrt.setRotation(prt.getRotation())
-                        flipPrt.reloadAndSyncToClient()
-                    }
                 }
             }
         }

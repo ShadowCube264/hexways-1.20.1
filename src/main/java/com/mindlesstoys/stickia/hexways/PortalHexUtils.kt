@@ -13,17 +13,19 @@ import kotlin.math.sin
 class PortalHexUtils {
     companion object {
         // $ TODO: Rework for nicer portal flipping
-        fun MakePortalNGon(portal: Portal, sides: Int, roll: Double) { //GOTTEN FROM IMMERSIVE PORTALS PortalCommand
+        fun MakePortalNGon(portal: Portal, sides: Int, roll: Double, mirrored: Boolean = false) { //GOTTEN FROM IMMERSIVE PORTALS PortalCommand
             val shape = GeometryPortalShape()
             val twoPi = Math.PI * 2
+
+            val offset: Double = if (mirrored) Math.PI else 0.0
             shape.triangles = IntStream.range(0, sides)
                 .mapToObj { i: Int ->
                     GeometryPortalShape.TriangleInPlane(
                         0.0, 0.0,
-                        portal.width * 0.5 * cos(twoPi * ((i.toDouble()) / sides + roll)),
-                        portal.height * 0.5 * sin(twoPi * ((i.toDouble()) / sides + roll)),
-                        portal.width * 0.5 * cos(twoPi * ((i.toDouble() + 1) / sides + roll)),
-                        portal.height * 0.5 * sin(twoPi * ((i.toDouble() + 1) / sides + roll))
+                        portal.width * 0.5 * cos(offset + twoPi * ((i.toDouble()) / sides + roll)),
+                        portal.height * 0.5 * sin(offset + twoPi * ((i.toDouble()) / sides + roll)),
+                        portal.width * 0.5 * cos(offset + twoPi * ((i.toDouble() + 1) / sides + roll)),
+                        portal.height * 0.5 * sin(offset + twoPi * ((i.toDouble() + 1) / sides + roll))
                     )
                 }.collect(Collectors.toList())
             portal.specialShape = shape
