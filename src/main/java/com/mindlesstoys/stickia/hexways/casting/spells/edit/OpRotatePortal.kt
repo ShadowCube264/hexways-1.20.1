@@ -59,17 +59,18 @@ class OpRotatePortal : SpellAction {
             if (revPrt !== null) {
                revFlipPrt = PortalManipulation.findFlippedPortal(revPrt)
             }
+
+            prt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
+            prt.reloadAndSyncToClient()
+
+            if (flipPrt !== null) {
+                flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot.reverse())[0], PortalHexUtils.PortalVecRotate(prtRot.reverse())[1])
+                flipPrt.reloadAndSyncToClient()
+            }
             
             if (!onlyRotateInput) {
-                prt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
-                prt.reloadAndSyncToClient()
-
-                if (flipPrt !== null) {
-                    flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
-                    flipPrt.reloadAndSyncToClient()
-                }
                 if (revPrt !== null) {
-                    revPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
+                    revPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot.reverse())[0], PortalHexUtils.PortalVecRotate(prtRot.reverse())[1])
                     revPrt.reloadAndSyncToClient()
                 }
                 if (revFlipPrt !== null) {
@@ -78,22 +79,25 @@ class OpRotatePortal : SpellAction {
                 }
             } else {
                 val quat = DQuaternion.fromFacingVecs(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
-                // val inverseQuat = DQuaternion.fromFacingVecs(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1].multiply(Vec3(-1.0,-1.0,-1.0)))
-
-                prt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
-                prt.reloadAndSyncToClient()
-
-                if (flipPrt !== null) {
-                    flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
-                    flipPrt.reloadAndSyncToClient()
-                }
+                val inverseQuat = DQuaternion.fromFacingVecs(PortalHexUtils.PortalVecRotate(prtRot.reverse())[0], PortalHexUtils.PortalVecRotate(prtRot.reverse())[1])
+                
                 if (revPrt !== null) {
-                    revPrt.setRotation(quat)
+                    val otherQuat = revPrt.getOrientationRotation()
+                    revPrt.setOtherSideOrientation(quat)
                     revPrt.reloadAndSyncToClient()
+
+                    prt.setOtherSideOrientation(otherQuat)
+                    prt.reloadAndSyncToClient()
                 }
                 if (revFlipPrt !== null) {
-                    revFlipPrt.setRotation(quat)
+                    val otherQuat = revFlipPrt.getOrientationRotation()
+                    revFlipPrt.setOtherSideOrientation(inverseQuat)
                     revFlipPrt.reloadAndSyncToClient()
+
+                    if (flipPrt !== null) {
+                        flipPrt.setOtherSideOrientation(otherQuat)
+                        flipPrt.reloadAndSyncToClient()
+                    }
                 }
             }
         }
