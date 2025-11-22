@@ -61,6 +61,7 @@ class OpRotatePortal : SpellAction {
             }
 
             prt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
+            prt.reloadAndSyncToClient()
 
             if (flipPrt !== null) {
                 flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot.reverse())[0], PortalHexUtils.PortalVecRotate(prtRot.reverse())[1])
