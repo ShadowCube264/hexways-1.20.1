@@ -61,7 +61,6 @@ class OpRotatePortal : SpellAction {
             }
 
             prt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
-            prt.reloadAndSyncToClient()
 
             if (flipPrt !== null) {
                 flipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot.reverse())[0], PortalHexUtils.PortalVecRotate(prtRot.reverse())[1])
@@ -69,12 +68,20 @@ class OpRotatePortal : SpellAction {
             }
             
             if (!onlyRotateInput) {
+                prt.setRotation(null)
+                prt.reloadAndSyncToClient()
+                if (flipPrt !== null) {
+                    flipPrt.setRotation(null)
+                    flipPrt.reloadAndSyncToClient()
+                }
                 if (revPrt !== null) {
                     revPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot.reverse())[0], PortalHexUtils.PortalVecRotate(prtRot.reverse())[1])
+                    revPrt.setRotation(null)
                     revPrt.reloadAndSyncToClient()
                 }
                 if (revFlipPrt !== null) {
                     revFlipPrt.setOrientation(PortalHexUtils.PortalVecRotate(prtRot)[0], PortalHexUtils.PortalVecRotate(prtRot)[1])
+                    revFlipPrt.setRotation(null)
                     revFlipPrt.reloadAndSyncToClient()
                 }
             } else {
