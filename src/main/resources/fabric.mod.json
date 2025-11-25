@@ -11,8 +11,9 @@
 		"And Thanks to Nano for code help"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://modrinth.com/project/hex-ways-1.20",
+		"issues": "https://github.com/ShadowCube264/hexways-1.20.1/issues",
+		"sources": "https://github.com/ShadowCube264/hexways-1.20.1"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/hexways/icon.png",
