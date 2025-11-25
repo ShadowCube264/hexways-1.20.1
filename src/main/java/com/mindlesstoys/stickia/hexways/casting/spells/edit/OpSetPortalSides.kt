@@ -60,12 +60,12 @@ class OpSetPortalSides : SpellAction {
             prt.reloadAndSyncToClient()
 
             if (flipPrt != null) {
-                PortalHexUtils.MakePortalNGon(flipPrt, prtSides, prtRoll)
+                PortalHexUtils.MakePortalNGon(flipPrt, prtSides, prtRoll, true)
                 flipPrt.reloadAndSyncToClient()
             }
 
             if (revPrt != null) {
-                PortalHexUtils.MakePortalNGon(revPrt, prtSides, prtRoll)
+                PortalHexUtils.MakePortalNGon(revPrt, prtSides, prtRoll, true)
                 revPrt.reloadAndSyncToClient()
             }
             if (revFlipPrt != null) {

@@ -12,17 +12,21 @@ import kotlin.math.sin
 
 class PortalHexUtils {
     companion object {
-        fun MakePortalNGon(portal: Portal, sides: Int, roll: Double) { //GOTTEN FROM IMMERSIVE PORTALS PortalCommand
+        // $ TODO: Rework for nicer portal flipping
+        fun MakePortalNGon(portal: Portal, sides: Int, roll: Double, mirrored: Boolean = false) { //GOTTEN FROM IMMERSIVE PORTALS PortalCommand
             val shape = GeometryPortalShape()
-            val twoPi = Math.PI * 2
+            val twoPi = Math.PI * 2 * (if (mirrored) -1 else 1) // $ For consistency with double-sidedness and two-way portals
+            val halfPi = Math.PI / 2
+            val evenOffset: Double = if (sides % 2 == 0) (1.0 / (sides * 2)) else 0.0 // $ Consistent side position, rather than corner position
+
             shape.triangles = IntStream.range(0, sides)
                 .mapToObj { i: Int ->
                     GeometryPortalShape.TriangleInPlane(
                         0.0, 0.0,
-                        portal.width * 0.5 * cos(twoPi * ((i.toDouble()) / sides + roll)),
-                        portal.height * 0.5 * sin(twoPi * ((i.toDouble()) / sides + roll)),
-                        portal.width * 0.5 * cos(twoPi * ((i.toDouble() + 1) / sides + roll)),
-                        portal.height * 0.5 * sin(twoPi * ((i.toDouble() + 1) / sides + roll))
+                        portal.width * 0.5 * cos(halfPi + twoPi * ((i.toDouble()) / sides + roll + evenOffset)),
+                        portal.height * 0.5 * sin(halfPi + twoPi * ((i.toDouble()) / sides + roll + evenOffset)),
+                        portal.width * 0.5 * cos(halfPi + twoPi * ((i.toDouble() + 1) / sides + roll + evenOffset)),
+                        portal.height * 0.5 * sin(halfPi + twoPi * ((i.toDouble() + 1) / sides + roll + evenOffset))
                     )
                 }.collect(Collectors.toList())
             portal.specialShape = shape
