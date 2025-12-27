@@ -77,7 +77,7 @@
       <ul class="nav navbar-nav navbar-right">
             <li>
     <a
-      href="https://github.com/ShadowCube264/hexways-1.20.1/tree/d2045727fddc88c9427f7b26e4828a3ddb14009b"
+      href="https://github.com/ShadowCube264/hexways-1.20.1/tree/12be624d3786c8c639238bb6006d6bb23be9acd4"
         target="_blank"
       class="navbar-link"
       role="button"
@@ -251,7 +251,7 @@
         data-per-world="True"
       >Your browser does not support visualizing patterns. Pattern code: wdeeqawqwqwadeaqadeaedaqae</canvas>
   </details>
-      <p>Accepts a vector for the portal&#39;s input, one for output, a third for rotation, and a number for its initial radius. Costs one shard per block of distance between portals.</p>
+      <p>Accepts a vector for the portal&#39;s input, one for output, a third for rotation, and a number for its initial radius. Costs increase logarithmically with distance.</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:onewayportal" class="">
@@ -307,7 +307,7 @@
         data-per-world="True"
       >Your browser does not support visualizing patterns. Pattern code: awqwqwadadadaadadaqwdee</canvas>
   </details>
-      <p>Accepts the arguments of 2-way portal, but constructs a portal restricted to unilateral traversal. Similarly costs one shard per block of distance.</p>
+      <p>Accepts the arguments of 2-way portal, but constructs a portal restricted to unilateral traversal. Strangely, Nature offers no discount for this lesser portal.</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:summonscry" class="">
@@ -363,7 +363,7 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: eedwwdwewewd</canvas>
   </details>
-      <p>Works as a 1-way portal, but does not provide travel, only sight. Costs half a dust per unit of size and distance.</p>
+      <p>Works as a 1-way portal, but does not provide travel, only sight. Costs increase with distance, though noticeably less than for other portals.</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:rotateportal" class="">
@@ -475,7 +475,7 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: qqawwawqwqwaewaw</canvas>
   </details>
-      <p>Takes a portal and location vector, and moves its input to that location. With two-way portals, the &#39;input&#39; refers to the side passed to the spell. Costs 1 shard per block moved.</p>
+      <p>Takes a portal and location vector, and moves its input to that location. The cost is slightly lesser than portal creation, and is reduced for scrying portals.</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:moveportaloutput" class="">
@@ -531,7 +531,7 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: eedwwdwewewdqwdw</canvas>
   </details>
-      <p>Takes a portal and location vector, and moves its output to that location. For a two-way portal, this also moves the portal on the other side, as expected. Costs 1 shard per block moved.</p>
+      <p>Takes a portal and location vector, and moves its output to that location. For a two-way portal, this also moves the portal on the other side, as expected. Costs are similar to the previous pattern.</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:getoutputinfo" class="">
@@ -701,7 +701,7 @@
         data-per-world="False"
       >Your browser does not support visualizing patterns. Pattern code: weaqaweewwawqwaw</canvas>
   </details>
-      <p>Passing a portal, height, and width, I may change the size of the portal, reverting it to a hexagonal shape, curiously. Costs shards equal to the average of the height and width.</p>
+      <p>Passing a portal, height, and width, I may change the size of the portal, reverting it to a hexagonal shape, curiously. Costs no <span style="color: #74b3f2">media</span>.</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:removeportal" class="">
