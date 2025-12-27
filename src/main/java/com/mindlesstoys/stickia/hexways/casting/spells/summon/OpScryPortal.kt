@@ -27,7 +27,7 @@ class OpScryPortal : SpellAction {
 
         // $ https://www.desmos.com/calculator/saezix1aud
         val distance = prtPos.distanceTo(prtPosOut)
-        val cost = (8 * MediaConstants.DUST_UNIT * (Math.log(distance / 8 + 1))).toLong() + 16
+        val cost = ((8 * (Math.log(distance / 8 + 1))).toLong() + 16) * MediaConstants.DUST_UNIT
 
         val prtPos3f = Vector3f(prtPos.x.toFloat(), prtPos.y.toFloat(), prtPos.z.toFloat())
 
