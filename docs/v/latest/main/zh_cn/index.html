@@ -77,7 +77,7 @@
       <ul class="nav navbar-nav navbar-right">
             <li>
     <a
-      href="https://github.com/ShadowCube264/hexways-1.20.1/tree/e4e8fbeab8287a7e55f4fc93bae3788157efeb03"
+      href="https://github.com/ShadowCube264/hexways-1.20.1/tree/2a6ca134fc81a4a34abe28da97f7648b45461c06"
         target="_blank"
       class="navbar-link"
       role="button"
@@ -192,11 +192,11 @@
     class="permalink small"
     title="Permalink"
   ><i class="bi bi-link-45deg"></i></a></h3>
-  <h4>Hex Portals?</h4>
-    <p>I have come across a method by which I can imitate the phenomenon of wormholes (or perhaps, electron tunneling?), using media. This discovery was powered by the presence of another modification, &#34;Immersive Portals&#34;. How exciting! I shall utilize this revelation posthaste.</p>
+  <h4>咒术传送门？</h4>
+    <p>我发现了模拟虫洞（或者说是电子隧穿？）现象的方式，仅凭媒质。这一发现的基础在于另一个模组：“沉浸式传送门”。真是有趣！我需要立即实践这一发现。</p>
 <br />
-  <h4>Portal Ambit</h4>
-    <p>Astoundingly, these portals... the range of my <span style="color: #b38ef3">Hexes</span> may flow through them, albeit diminished. It seems my influence stretches outside to the other end of a portal, at half the remaining distance from me. As such, I may find the equation &#34;(32 - my location)/2&#34; to suffice for the added reach.</p>
+  <h4>传送门施法范围</h4>
+    <p>这些传送门，真是奇特……我<span style="color: #b38ef3">咒术</span>的返回能够透过它们，虽然会遭到削减。我在传送门另一侧外部的施法范围会变为剩余距离的一半。也即，如下等式“(32 - 我的位置)/2”能完全描述这一规律。</p>
 <br />
   <div id="patterns/spells/hexways@hexways:twowayportal" class="">
 <h4 class="pattern-title">召唤双向传送门 (vec, vec, vec, num →)<a
@@ -251,7 +251,7 @@
         data-per-world="True"
       >浏览器不支持图案的可视化。图案代码见此：wdeeqawqwqwadeaqadeaedaqae</canvas>
   </details>
-      <p>Accepts a vector for the portal&#39;s input, one for output, a third for rotation, and a number for its initial radius. Costs increase logarithmically with distance.</p>
+      <p>接受一个传送门入口向量、一个传送门出口向量、一个传送门朝向向量，以及一个初始半径数。每级尺寸消耗 16 个充能紫水晶。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:onewayportal" class="">
@@ -307,7 +307,7 @@
         data-per-world="True"
       >浏览器不支持图案的可视化。图案代码见此：awqwqwadadadaadadaqwdee</canvas>
   </details>
-      <p>Accepts the arguments of 2-way portal, but constructs a portal restricted to unilateral traversal. Strangely, Nature offers no discount for this lesser portal.</p>
+      <p>参数与双向传送门相同，但制造出的传送门仅供单向通行。更为特化的传送门消耗也更多，每级尺寸消耗 32 个充能紫水晶。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:summonscry" class="">
@@ -363,7 +363,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：eedwwdwewewd</canvas>
   </details>
-      <p>Works as a 1-way portal, but does not provide travel, only sight. Costs increase with distance, though noticeably less than for other portals.</p>
+      <p>与单向传送门类似，但无法穿过。和功能完整的传送门没法比，但它的消耗实在是很少。每级尺寸消耗 4 个紫水晶碎片。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:rotateportal" class="">
@@ -419,7 +419,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：waqqedwewewdqwdw</canvas>
   </details>
-      <p>Ah, fickle rotation vectors. To my luck, I may use this spell to change the rotation of a given portal. The final argument determines whether the rotation is limited to one side, for a 2-way portal.</p>
+      <p>旋转向量变化无常，确实麻烦。好在我可以用这个法术改变给定传送门的朝向。需要注意的是，它同时也会旋转出口的朝向，且无需消耗<span style="color: #74b3f2">媒质</span>。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:moveportalinput" class="">
@@ -475,7 +475,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：qqawwawqwqwaewaw</canvas>
   </details>
-      <p>Takes a portal and location vector, and moves its input to that location. The cost is slightly lesser than portal creation, and is reduced for scrying portals.</p>
+      <p>接受一个传送门实体和一个位置向量，并将传送门的入口移动至所给位置。因为传送门并非单个实体，而是两个一组，此处的“入口”指代传入的那一侧。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:moveportaloutput" class="">
@@ -587,10 +587,10 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：waqqedwewewdawdwwwdw</canvas>
   </details>
-      <p>This nifty pattern returns a portal&#39;s output location as a vector (which will be the location of the output portal, for a 2-way portal). This could be useful combined with Portal Ambit. Costs no <span style="color: #74b3f2">media</span>.</p>
+      <p>这个好用的图案会返回传入传送门的“出口”传送门实体，如果没有对应实体则返回出口位置向量。配合传送门施法范围有大用处。无需消耗<span style="color: #74b3f2">媒质</span>。</p>
   </div>
 <br />
-    <p>After confusion, I concluded that this pattern works the best with Move Portal, due to getting the output portal, if it is a 2-way portal. Another use for this pattern may be for raycasts, since the casts don&#39;t pass through portals, but with this, I can emulate the raycast.</p>
+    <p>在多次碰壁后，我认为此图案和移动传送门法术最合拍，因为它会返回双向传送门的出口实体。另一个用处是射线追踪；普通的射线追踪无法穿过传送门，但此法术可以模拟。</p>
 <br />
   <div id="patterns/spells/hexways@hexways:setportalsides" class="">
 <h4 class="pattern-title">设置传送门边数 (entity (Portal), num, num →)<a
@@ -645,7 +645,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：waqqqadawqadadaq</canvas>
   </details>
-      <p>As, well, <i>familiar</i> as I am with hexagons, sadly they don&#39;t fit every situation. But with this spell, I may alter the count of a portal&#39;s sides and roll, free of cost.</p>
+      <p>我对六边形堪称<i>熟稔</i>，但它们并不适合所有情况。而此法术可以更改传送门的边数和横滚角度，无需消耗<span style="color: #74b3f2">媒质</span>。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:resizeportal" class="">
@@ -701,7 +701,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：weaqaweewwawqwaw</canvas>
   </details>
-      <p>Passing a portal, height, and width, I may change the size of the portal, reverting it to a hexagonal shape, curiously. Costs no <span style="color: #74b3f2">media</span>.</p>
+      <p>接受一个传送门、一个高度数、一个宽度数，以此更改传送门的大小。神奇的是，同时会把传送门的外形变回六边形。消耗的紫水晶碎片量等于高度和宽度的平均数。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:removeportal" class="">
@@ -757,7 +757,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：wdeeqawqwqwaedaqwqad</canvas>
   </details>
-      <p>Alas, if a portal provides the visage of too much for my eyes to handle, this spell may cut the string, banishing a portal pair. Costs no <span style="color: #74b3f2">media</span>.</p>
+      <p>要是传送门的影响太过惹眼，此法术即可解决问题，直接消去一个传送门对。无需消耗<span style="color: #74b3f2">媒质</span>。</p>
   </div>
 <br />
 </div>
