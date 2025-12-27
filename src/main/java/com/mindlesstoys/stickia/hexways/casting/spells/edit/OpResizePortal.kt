@@ -18,6 +18,7 @@ class OpResizePortal : SpellAction {
      * The number of arguments from the stack that this action requires.
      */
     override val argc: Int = 3
+    private val cost: Long = 0
 
     override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val prtEnt: Entity = args.getEntity(0,argc)
@@ -30,7 +31,6 @@ class OpResizePortal : SpellAction {
             throw MishapPortalEntity(prtEnt)
         }
 
-        val cost = ((prtWidth + prtHeight)/2).toInt() * 2 * MediaConstants.SHARD_UNIT
         //16 * MediaConstants.SHARD_UNIT
         return SpellAction.Result(
             Spell(prtEnt,prtHeight,prtWidth),

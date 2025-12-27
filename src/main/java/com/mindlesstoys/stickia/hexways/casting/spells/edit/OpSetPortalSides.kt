@@ -53,7 +53,7 @@ class OpSetPortalSides : SpellAction {
             val revPrt = PortalManipulation.findReversePortal(prt)
 
             if (revPrt !== null) {
-               revFlipPrt = PortalManipulation.findFlippedPortal(revPrt)!!
+               revFlipPrt = PortalManipulation.findFlippedPortal(revPrt)
             }
 
             PortalHexUtils.MakePortalNGon(prt, prtSides, prtRoll)

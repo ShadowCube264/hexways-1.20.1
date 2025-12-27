@@ -1,4 +1,5 @@
 {
+  "_comment": "Taken from the original mod, unfortunately it's a little outdated for now.",
   "item.hexways.portal_staff": "传送门法杖",
   "hexcasting.action.hexways:twowayportal": "召唤双向传送门",
   "hexcasting.action.hexways:onewayportal": "召唤单向传送门",

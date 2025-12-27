@@ -15,16 +15,18 @@ import qouteall.imm_ptl.core.portal.Portal
 
 class OpTwoWayPortal : SpellAction {
     override val argc = 4
-    override fun execute(
-        args: List<Iota>,
-        env: CastingEnvironment,
-    ): SpellAction.Result {
+
+    override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val prtPos: Vec3 = args.getVec3(0,argc)
         val prtPosOut: Vec3 = args.getVec3(1,argc)
         val prtRot: Vec3 = args.getVec3(2,argc)
         val prtSize: Double = args.getDoubleBetween(3,1.0/10.0,10.0,argc)
 
-        val cost = (prtPos.distanceTo(prtPosOut)*MediaConstants.SHARD_UNIT).toLong()
+        // $ val cost = (prtPos.distanceTo(prtPosOut)*MediaConstants.SHARD_UNIT).toLong()
+
+        // $ https://www.desmos.com/calculator/saezix1aud
+        val distance = prtPos.distanceTo(prtPosOut)
+        val cost = (32 * MediaConstants.DUST_UNIT * (Math.log(distance / 16 + 1))).toLong() + 32
 
         val prtPos3f = Vector3f(prtPos.x.toFloat(), prtPos.y.toFloat(), prtPos.z.toFloat())
 

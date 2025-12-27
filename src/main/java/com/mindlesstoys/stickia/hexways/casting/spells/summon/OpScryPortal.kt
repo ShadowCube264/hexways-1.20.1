@@ -16,16 +16,18 @@ import qouteall.imm_ptl.core.portal.Portal
 
 class OpScryPortal : SpellAction {
     override val argc = 4
-    override fun execute(
-        args: List<Iota>,
-        env: CastingEnvironment,
-    ): SpellAction.Result {
+
+    override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val prtPos: Vec3 = args.getVec3(0,argc)
         val prtPosOut: Vec3 = args.getVec3(1,argc)
         val prtRot: Vec3 = args.getVec3(2,argc)
         val prtSize: Double = args.getDoubleBetween(3,1.0/10.0,10.0,argc)
 
-        val cost = (prtSize*prtPos.distanceTo(prtPosOut)*MediaConstants.DUST_UNIT/2).toLong()
+        // $ val cost = (prtSize*prtPos.distanceTo(prtPosOut)*MediaConstants.DUST_UNIT/2).toLong()
+
+        // $ https://www.desmos.com/calculator/saezix1aud
+        val distance = prtPos.distanceTo(prtPosOut)
+        val cost = (8 * MediaConstants.DUST_UNIT * (Math.log(distance / 8 + 1))).toLong() + 16
 
         val prtPos3f = Vector3f(prtPos.x.toFloat(), prtPos.y.toFloat(), prtPos.z.toFloat())
 

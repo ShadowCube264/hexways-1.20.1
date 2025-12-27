@@ -15,10 +15,8 @@ import qouteall.imm_ptl.core.portal.PortalManipulation
 
 class OpMoveOutput : SpellAction {
     override val argc = 2
-    override fun execute(
-        args: List<Iota>,
-        env: CastingEnvironment,
-    ): SpellAction.Result {
+
+    override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
         val prt: Entity = args.getEntity(0,argc)
         val prtPos: Vec3 = args.getVec3(1,argc)
         if (prt !is HexPortal){
@@ -26,7 +24,17 @@ class OpMoveOutput : SpellAction {
         }
         env.assertEntityInRange(prt)
         env.assertVecInRange(prtPos)
-        val cost = (prt.destPos.distanceTo(prtPos)*MediaConstants.SHARD_UNIT).toLong()
+
+        // $ val cost = (prt.destPos.distanceTo(prtPos)*MediaConstants.SHARD_UNIT).toLong()
+
+        // $ https://www.desmos.com/calculator/saezix1aud
+        val distance = prt.destPos.distanceTo(prtPos)
+        val cost : Long
+        if (prt.ambitTraversable) {
+            cost = (32 * MediaConstants.DUST_UNIT * (Math.log(distance / 16 + 1))).toLong()
+        } else {
+            cost = (8 * MediaConstants.DUST_UNIT * (Math.log(distance / 8 + 1))).toLong()
+        }
 
         return SpellAction.Result(
             Spell(prt,prtPos),
