@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Hexways Book</title>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="Portal Hex Addon addon for Hex Casting" />
+      <meta name="author" content="ShadowCube264" />
+        <link rel="None" type="image/ico" href="favicon.ico" />
+        <link rel="icon" type="image/png" href="favicon-16x16.png" />
+        <link rel="icon" type="image/png" href="favicon-32x32.png" />
+        <link rel="icon" type="image/png" href="favicon-64x64.png" />
+        <link rel="icon" type="image/png" href="favicon-96x96.png" />
+        <link rel="icon" type="image/png" href="favicon-180x180.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-57x57.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-60x60.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-72x72.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-76x76.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-114x114.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-120x120.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-144x144.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-152x152.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-167x167.png" />
+        <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png" />
+        <link rel="None" type="image/png" href="mstile-70x70.png" />
+        <link rel="None" type="image/png" href="mstile-270x270.png" />
+        <link rel="None" type="image/png" href="mstile-310x310.png" />
+        <link rel="None" type="image/png" href="mstile-310x150.png" />
+        <link rel="shortcut icon" type="image/png" href="favicon-196x196.png" />
+      <link rel="mask-icon" href="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/main/media/safari-pinned-tab.svg" color="#332233">
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Hexways Book" />
+<meta property="og:image" content="https://shadowcube264.github.io/hexways-1.20.1/v/1.0.0/1.0/zh_cn/icon.png" />
+<meta property="og:url" content="https://shadowcube264.github.io/hexways-1.20.1/v/1.0.0/1.0/zh_cn" />
+<meta property="og:description" content="Portal Hex Addon addon for Hex Casting" />
+<meta property="og:site_name" content="Hexways (1.0.0)" />
+      <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+      integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="textures.css">
+      <noscript>
+        <style>
+          /* for accessibility */
+          .spoilered {
+            filter: none !important;
+          }
+        </style>
+      </noscript>
+        <script type="module" src="index.js"></script>
+  <script type="module" src="hexcasting.js"></script>
+  <script type="module" src="hexcasting_render.js"></script>
+  </head>
+  <body>
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button
+        type="button"
+        class="navbar-toggle collapsed"
+        data-toggle="collapse"
+        data-target="#navbar-collapse"
+        aria-expanded="false"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="../../../..">Hexways Book</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar-collapse">
+      <ul class="nav navbar-nav navbar-right">
+            <li>
+    <a
+      href="https://github.com/ShadowCube264/hexways-1.20.1/tree/2a6ca134fc81a4a34abe28da97f7648b45461c06"
+        target="_blank"
+      class="navbar-link"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false"
+    >GitHub <i class="bi bi-box-arrow-up-right external-link-icon"></i></a>
+  </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >1.0.0 <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="version-dropdown"></ul>
+        </li>
+        <li class="dropdown">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >简体中文 (中国大陆) <span class="caret"></span></a>
+          <ul class="dropdown-menu dropdown-menu-left" id="lang-dropdown"></ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container" style="margin-top: 3em;">
+  <blockquote>
+      <h1><p>这是Hexways文档的在线版本。</p></h1>
+      <p><strong>条目的模糊处理相当于剧透警告</strong>。点击条目即可取消模糊，不过这么做有可能破坏游戏后期的进程与体验。也可点击<a href="?nospoiler">此处</a>以取消所有模糊。</p>
+      <span id="old-version-notice" class="hidden">
+        <br />
+        <p><i>往事犹若异乡；他们在那里做的事情都不一样。</i></p>
+      </span>
+  </blockquote>
+</div>
+<div class="container">
+<div id="table-of-contents"></div>
+<nav class="toc-container">
+  <h2 class="page-header">
+    <span class="nobr">目录<a
+      href="javascript:void(0)"
+      class="permalink toggle-link small"
+      data-target="toc-category"
+      title="显示或收起全部"
+    ><i class="bi bi-list-nested"></i></a><a
+    href="#table-of-contents"
+    class="permalink small toc-permalink"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></span>
+  </h2>
+    <details class="toc-category">
+      <summary><a href="#patterns/spells" class="toc-elem "><img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    > 法术</a></summary>
+      <ul>
+          <li><a href="#patterns/spells/hexways" class="toc-elem "><img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    > Hex Ways</a></li>
+      </ul>
+    </details>
+</nav>
+  <main class="book-body">
+<section id="patterns/spells">
+    <h2 class="category-title page-header">
+    <img
+      title="附魔书"
+      alt="附魔书"
+      src="https://raw.githubusercontent.com/PrismarineJS/minecraft-assets/a14c64362abe4a12c2dfd87f8d1673af9d1b09f4/data/1.20.2/items/enchanted_book.png"
+      loading="lazy"
+      class="item-texture  texture pixelated"
+    >法术<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h2>
+    <p>能以魔法影响到世界的图案和操作。</p>
+<div id="patterns/spells/hexways" class="entry">
+    <h3 class="entry-title page-header">
+    <img
+      title="末地传送门框架"
+      alt="末地传送门框架"
+      src="https://hexdoc-dev.github.io/hexdoc-minecraft/v/1.20.1/1.0.dev1/assets/minecraft/textures/block/end_portal_frame.png"
+      loading="lazy"
+      class="item-texture  texture "
+    >Hex Ways<a
+    href="#table-of-contents"
+    class="permalink small"
+    title="Jump to top"
+  ><i class="bi bi-box-arrow-up"></i></a><a
+    href="#patterns/spells/hexways"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h3>
+  <h4>咒术传送门？</h4>
+    <p>我发现了模拟虫洞（或者说是电子隧穿？）现象的方式，仅凭媒质。这一发现的基础在于另一个模组：“沉浸式传送门”。真是有趣！我需要立即实践这一发现。</p>
+<br />
+  <h4>传送门施法范围</h4>
+    <p>这些传送门，真是奇特……我<span style="color: #b38ef3">咒术</span>的返回能够透过它们，虽然会遭到削减。我在传送门另一侧外部的施法范围会变为剩余距离的一半。也即，如下等式“(32 - 我的位置)/2”能完全描述这一规律。</p>
+<br />
+  <div id="patterns/spells/hexways@hexways:twowayportal" class="">
+<h4 class="pattern-title">召唤双向传送门 (vec, vec, vec, num →)<a
+    href="#patterns/spells/hexways@hexways:twowayportal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wdeeqawqwqwadeaqadeaedaqae"
+        data-start="west"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：wdeeqawqwqwadeaqadeaedaqae</canvas>
+  </details>
+      <p>接受一个传送门入口向量、一个传送门出口向量、一个传送门朝向向量，以及一个初始半径数。每级尺寸消耗 16 个充能紫水晶。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:onewayportal" class="">
+<h4 class="pattern-title">召唤单向传送门 (vec, vec, vec, num →)<a
+    href="#patterns/spells/hexways@hexways:onewayportal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="awqwqwadadadaadadaqwdee"
+        data-start="east"
+        data-per-world="True"
+      >浏览器不支持图案的可视化。图案代码见此：awqwqwadadadaadadaqwdee</canvas>
+  </details>
+      <p>参数与双向传送门相同，但制造出的传送门仅供单向通行。更为特化的传送门消耗也更多，每级尺寸消耗 32 个充能紫水晶。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:summonscry" class="">
+<h4 class="pattern-title">召唤窥视门 (vec, vec, vec, num →)<a
+    href="#patterns/spells/hexways@hexways:summonscry"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eedwwdwewewd"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eedwwdwewewd</canvas>
+  </details>
+      <p>与单向传送门类似，但无法穿过。和功能完整的传送门没法比，但它的消耗实在是很少。每级尺寸消耗 4 个紫水晶碎片。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:rotateportal" class="">
+<h4 class="pattern-title">旋转传送门 (entity (Portal), vec, bool →)<a
+    href="#patterns/spells/hexways@hexways:rotateportal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="waqqedwewewdqwdw"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：waqqedwewewdqwdw</canvas>
+  </details>
+      <p>旋转向量变化无常，确实麻烦。好在我可以用这个法术改变给定传送门的朝向。需要注意的是，它同时也会旋转出口的朝向，且无需消耗<span style="color: #74b3f2">媒质</span>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:moveportalinput" class="">
+<h4 class="pattern-title">移动传送门 (entity (Portal), vec →)<a
+    href="#patterns/spells/hexways@hexways:moveportalinput"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="qqawwawqwqwaewaw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：qqawwawqwqwaewaw</canvas>
+  </details>
+      <p>接受一个传送门实体和一个位置向量，并将传送门的入口移动至所给位置。因为传送门并非单个实体，而是两个一组，此处的“入口”指代传入的那一侧。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:moveportaloutput" class="">
+<h4 class="pattern-title">Alter Destination (entity (Portal), vec →)<a
+    href="#patterns/spells/hexways@hexways:moveportaloutput"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="eedwwdwewewdqwdw"
+        data-start="north_east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：eedwwdwewewdqwdw</canvas>
+  </details>
+      <p>Takes a portal and location vector, and moves its output to that location. For a two-way portal, this also moves the portal on the other side, as expected. Costs are similar to the previous pattern.</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:getoutputinfo" class="">
+<h4 class="pattern-title">获取出口信息 (entity (Portal) → vec)<a
+    href="#patterns/spells/hexways@hexways:getoutputinfo"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="waqqedwewewdawdwwwdw"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：waqqedwewewdawdwwwdw</canvas>
+  </details>
+      <p>这个好用的图案会返回传入传送门的“出口”传送门实体，如果没有对应实体则返回出口位置向量。配合传送门施法范围有大用处。无需消耗<span style="color: #74b3f2">媒质</span>。</p>
+  </div>
+<br />
+    <p>在多次碰壁后，我认为此图案和移动传送门法术最合拍，因为它会返回双向传送门的出口实体。另一个用处是射线追踪；普通的射线追踪无法穿过传送门，但此法术可以模拟。</p>
+<br />
+  <div id="patterns/spells/hexways@hexways:setportalsides" class="">
+<h4 class="pattern-title">设置传送门边数 (entity (Portal), num, num →)<a
+    href="#patterns/spells/hexways@hexways:setportalsides"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="waqqqadawqadadaq"
+        data-start="east"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：waqqqadawqadadaq</canvas>
+  </details>
+      <p>我对六边形堪称<i>熟稔</i>，但它们并不适合所有情况。而此法术可以更改传送门的边数和横滚角度，无需消耗<span style="color: #74b3f2">媒质</span>。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:resizeportal" class="">
+<h4 class="pattern-title">重设传送门尺寸 (entity (Portal), num, num →)<a
+    href="#patterns/spells/hexways@hexways:resizeportal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="weaqaweewwawqwaw"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：weaqaweewwawqwaw</canvas>
+  </details>
+      <p>接受一个传送门、一个高度数、一个宽度数，以此更改传送门的大小。神奇的是，同时会把传送门的外形变回六边形。消耗的紫水晶碎片量等于高度和宽度的平均数。</p>
+  </div>
+<br />
+  <div id="patterns/spells/hexways@hexways:removeportal" class="">
+<h4 class="pattern-title">移除传送门 (entity (Portal) →)<a
+    href="#patterns/spells/hexways@hexways:removeportal"
+    class="permalink small"
+    title="Permalink"
+  ><i class="bi bi-link-45deg"></i></a></h4>
+  <details class="details-collapsible">
+    <summary class="collapse-details collapse-spell"></summary>
+    <div class="dropdown spell-settings-dropdown">
+      <span
+        href=""
+        class="dropdown-toggle spell-settings-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        <i class="bi bi-gear-fill"></i>
+      </span>
+      <ul class="dropdown-menu">
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >渲染方式</a>
+          <ul class="dropdown-menu dropdown-menu-left render-dropdowns"></ul>
+        </li>
+        <li class="dropdown-submenu">
+          <a
+            href=""
+            class="dropdown-toggle"
+            data-toggle="dropdown"
+            role="button"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >配色</a>
+          <ul class="dropdown-menu dropdown-menu-left palette-dropdowns"></ul>
+        </li>
+      </ul>
+    </div>
+      <canvas
+        class="spell-viz"
+        width="216"
+        height="216"
+        data-string="wdeeqawqwqwaedaqwqad"
+        data-start="west"
+        data-per-world="False"
+      >浏览器不支持图案的可视化。图案代码见此：wdeeqawqwqwaedaqwqad</canvas>
+  </details>
+      <p>要是传送门的影响太过惹眼，此法术即可解决问题，直接消去一个传送门对。无需消耗<span style="color: #74b3f2">媒质</span>。</p>
+  </div>
+<br />
+</div>
+</section>
+  </main>
+</div>
+      <footer class="footer">
+        <div class="container text-muted">
+          <p>该页面不是Minecraft的官方产品，不隶属于Mojang和Microsoft，且不代表Mojang和Microsoft的意见。</p><p>Minecraft的游戏内容和资源均为各自所有者的知识财产。</p><p>使用<a href="https://pypi.org/project/hexdoc/" target="_blank">hexdoc</a>精心制作。❤️</p>
+        </div>
+      </footer>
+  </body>
+</html>
