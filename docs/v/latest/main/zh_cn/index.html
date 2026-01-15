@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      <title>Hexways Book</title>
+      <title>Hexways之书</title>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <meta name="description" content="Portal Hex Addon addon for Hex Casting" />
+      <meta name="description" content="咒法学的传送门咒术附属" />
       <meta name="author" content="ShadowCube264" />
         <link rel="None" type="image/ico" href="favicon.ico" />
         <link rel="icon" type="image/png" href="favicon-16x16.png" />
@@ -29,10 +29,10 @@
         <link rel="shortcut icon" type="image/png" href="favicon-196x196.png" />
       <link rel="mask-icon" href="https://raw.githubusercontent.com/hexdoc-dev/hexdoc/main/media/safari-pinned-tab.svg" color="#332233">
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Hexways Book" />
+<meta property="og:title" content="Hexways之书" />
 <meta property="og:image" content="https://shadowcube264.github.io/hexways-1.20.1/v/latest/main/zh_cn/icon.png" />
 <meta property="og:url" content="https://shadowcube264.github.io/hexways-1.20.1/v/latest/main/zh_cn" />
-<meta property="og:description" content="Portal Hex Addon addon for Hex Casting" />
+<meta property="og:description" content="咒法学的传送门咒术附属" />
 <meta property="og:site_name" content="Hexways (latest/main)" />
       <script src="https://code.jquery.com/jquery-1.12.4.min.js"
       integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
@@ -71,13 +71,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../../../..">Hexways Book</a>
+      <a class="navbar-brand" href="../../../..">Hexways之书</a>
     </div>
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
             <li>
     <a
-      href="https://github.com/ShadowCube264/hexways-1.20.1/tree/2a6ca134fc81a4a34abe28da97f7648b45461c06"
+      href="https://github.com/ShadowCube264/hexways-1.20.1/tree/f53ef84ecb3bd1377a22c45093f201a1d54e455e"
         target="_blank"
       class="navbar-link"
       role="button"
@@ -195,8 +195,8 @@
   <h4>咒术传送门？</h4>
     <p>我发现了模拟虫洞（或者说是电子隧穿？）现象的方式，仅凭媒质。这一发现的基础在于另一个模组：“沉浸式传送门”。真是有趣！我需要立即实践这一发现。</p>
 <br />
-  <h4>传送门施法范围</h4>
-    <p>这些传送门，真是奇特……我<span style="color: #b38ef3">咒术</span>的返回能够透过它们，虽然会遭到削减。我在传送门另一侧外部的施法范围会变为剩余距离的一半。也即，如下等式“(32 - 我的位置)/2”能完全描述这一规律。</p>
+  <h4>传送门影响范围</h4>
+    <p>这些传送门，真是奇特……我<span style="color: #b38ef3">咒术</span>的返回能够透过它们，虽然会遭到削减。我在传送门另一侧外部的影响范围会变为剩余距离的一半。也即，如下等式“(32 - 我的位置)/2”能完全描述这一规律。</p>
 <br />
   <div id="patterns/spells/hexways@hexways:twowayportal" class="">
 <h4 class="pattern-title">召唤双向传送门 (vec, vec, vec, num →)<a
@@ -251,7 +251,7 @@
         data-per-world="True"
       >浏览器不支持图案的可视化。图案代码见此：wdeeqawqwqwadeaqadeaedaqae</canvas>
   </details>
-      <p>接受一个传送门入口向量、一个传送门出口向量、一个传送门朝向向量，以及一个初始半径数。每级尺寸消耗 16 个充能紫水晶。</p>
+      <p>接受一个传送门入口向量、一个传送门出口向量、一个传送门朝向向量，以及一个初始半径数。消耗随距离对数式增加。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:onewayportal" class="">
@@ -307,7 +307,7 @@
         data-per-world="True"
       >浏览器不支持图案的可视化。图案代码见此：awqwqwadadadaadadaqwdee</canvas>
   </details>
-      <p>参数与双向传送门相同，但制造出的传送门仅供单向通行。更为特化的传送门消耗也更多，每级尺寸消耗 32 个充能紫水晶。</p>
+      <p>参数与双向传送门相同，但制造出的传送门仅供单向通行。奇怪的是，自然并未因传送门的能力缩减而降低消耗。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:summonscry" class="">
@@ -363,7 +363,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：eedwwdwewewd</canvas>
   </details>
-      <p>与单向传送门类似，但无法穿过。和功能完整的传送门没法比，但它的消耗实在是很少。每级尺寸消耗 4 个紫水晶碎片。</p>
+      <p>与单向传送门类似，但无法穿过，只能看见另一侧。消耗随距离增加而增加，但增加速度远低于其他传送门。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:rotateportal" class="">
@@ -419,7 +419,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：waqqedwewewdqwdw</canvas>
   </details>
-      <p>旋转向量变化无常，确实麻烦。好在我可以用这个法术改变给定传送门的朝向。需要注意的是，它同时也会旋转出口的朝向，且无需消耗<span style="color: #74b3f2">媒质</span>。</p>
+      <p>旋转向量变化无常，确实麻烦。好在我可以用这个法术改变给定传送门的朝向。对于双向传送门而言，最后一个参数决定了朝向修改是否仅作用于一侧。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:moveportalinput" class="">
@@ -475,11 +475,11 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：qqawwawqwqwaewaw</canvas>
   </details>
-      <p>接受一个传送门实体和一个位置向量，并将传送门的入口移动至所给位置。因为传送门并非单个实体，而是两个一组，此处的“入口”指代传入的那一侧。</p>
+      <p>接受一个传送门和一个位置向量，将其入口移动至所给位置。消耗略低于创建传送门，窥视门的消耗更少。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:moveportaloutput" class="">
-<h4 class="pattern-title">Alter Destination (entity (Portal), vec →)<a
+<h4 class="pattern-title">变易目的地 (entity (Portal), vec →)<a
     href="#patterns/spells/hexways@hexways:moveportaloutput"
     class="permalink small"
     title="Permalink"
@@ -531,11 +531,11 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：eedwwdwewewdqwdw</canvas>
   </details>
-      <p>Takes a portal and location vector, and moves its output to that location. For a two-way portal, this also moves the portal on the other side, as expected. Costs are similar to the previous pattern.</p>
+      <p>接受一个传送门和一个位置向量，将其出口移动至所给位置。对于双向传送门来说，此图案也会移动另一端的传送门，符合预期。消耗与前一图案类似。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:getoutputinfo" class="">
-<h4 class="pattern-title">获取出口信息 (entity (Portal) → vec)<a
+<h4 class="pattern-title">雪儿之纯化 (entity (Portal) → vec)<a
     href="#patterns/spells/hexways@hexways:getoutputinfo"
     class="permalink small"
     title="Permalink"
@@ -587,7 +587,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：waqqedwewewdawdwwwdw</canvas>
   </details>
-      <p>这个好用的图案会返回传入传送门的“出口”传送门实体，如果没有对应实体则返回出口位置向量。配合传送门施法范围有大用处。无需消耗<span style="color: #74b3f2">媒质</span>。</p>
+      <p>这个好用的图案会返回传送门的出口位置向量（对于双向传送门来说，是出口传送门的位置）。配合传送门影响范围有大用处。无需消耗<span style="color: #74b3f2">媒质</span>。</p>
   </div>
 <br />
     <p>在多次碰壁后，我认为此图案和移动传送门法术最合拍，因为它会返回双向传送门的出口实体。另一个用处是射线追踪；普通的射线追踪无法穿过传送门，但此法术可以模拟。</p>
@@ -645,7 +645,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：waqqqadawqadadaq</canvas>
   </details>
-      <p>我对六边形堪称<i>熟稔</i>，但它们并不适合所有情况。而此法术可以更改传送门的边数和横滚角度，无需消耗<span style="color: #74b3f2">媒质</span>。</p>
+      <p>我对六边形极为<i>熟稔</i>，但它们并不适合所有情况。此法术可以更改传送门的边数和横滚角度，无需消耗<span style="color: #74b3f2">媒质</span>。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:resizeportal" class="">
@@ -701,7 +701,7 @@
         data-per-world="False"
       >浏览器不支持图案的可视化。图案代码见此：weaqaweewwawqwaw</canvas>
   </details>
-      <p>接受一个传送门、一个高度数、一个宽度数，以此更改传送门的大小。神奇的是，同时会把传送门的外形变回六边形。消耗的紫水晶碎片量等于高度和宽度的平均数。</p>
+      <p>接受一个传送门、一个高度数、一个宽度数，以此更改传送门的大小。神奇的是，此图案同时会把传送门的外形变回六边形。无需消耗<span style="color: #74b3f2">媒质</span>。</p>
   </div>
 <br />
   <div id="patterns/spells/hexways@hexways:removeportal" class="">
