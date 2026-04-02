@@ -45,5 +45,8 @@
 		"fabric-language-kotlin": "*",
 		"hexcasting": "*",
 		"immersive_portals": "*"
+	},
+	"suggests": {
+		"oneironaut": "*"
 	}
 }

@@ -6,11 +6,13 @@ import com.mindlesstoys.stickia.hexways.casting.PatternRegistry
 import com.mindlesstoys.stickia.hexways.casting.PortalAmbit
 import com.mindlesstoys.stickia.hexways.entites.EntityRegistry
 import net.fabricmc.api.ModInitializer
+import net.fabricmc.loader.api.FabricLoader
 import org.slf4j.LoggerFactory
 
 object Hexways : ModInitializer {
     public final val LOGGER = LoggerFactory.getLogger("hexways")
 	const val MOD_ID = "hexways"
+	private var oneironautLoaded = false;
 
 	// $ Some of the original comments are brilliant, starting mine with a '$' so you can tell them apart :) - Shadow
 
@@ -18,6 +20,8 @@ object Hexways : ModInitializer {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
+		oneironautLoaded = FabricLoader.getInstance().isModLoaded("oneironaut")
+
 		LOGGER.info("Hex Ways teleporting into your logs")
 		PatternRegistry.init()
 		EntityRegistry.init()
@@ -26,5 +30,9 @@ object Hexways : ModInitializer {
 		CastingEnvironment.addCreateEventListener { env: CastingEnvironment ->
 			env.addExtension<CastingEnvironmentComponent>(PortalAmbit(env))
 		}
+	}
+
+	fun isOneironautLoaded(): Boolean {
+		return oneironautLoaded;
 	}
 }
