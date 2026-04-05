@@ -108,8 +108,8 @@ dependencies {
 
 	// $ Oneironaut and deps
 	modImplementation files("libs/oneironaut-fabric-1.20.1-0.5.0.jar")
+	modImplementation "ram.talia.hexal:hexal-fabric-$minecraft_version:$hexal_version"
 	modRuntimeOnly "dev.architectury:architectury-fabric:$architectury_version"
-	modRuntimeOnly "ram.talia.hexal:hexal-fabric-$minecraft_version:$hexal_version"
 }
 
 processResources {

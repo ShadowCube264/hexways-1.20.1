@@ -32,6 +32,7 @@ object Hexways : ModInitializer {
 		}
 	}
 
+	@JvmStatic
 	fun isOneironautLoaded(): Boolean {
 		return oneironautLoaded;
 	}

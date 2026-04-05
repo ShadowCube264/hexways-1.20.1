@@ -1,12 +1,14 @@
 package com.mindlesstoys.stickia.hexways.casting;
 
 import at.petrak.hexcasting.api.casting.ActionRegistryEntry;
+import at.petrak.hexcasting.api.casting.castables.Action;
 import at.petrak.hexcasting.api.casting.math.HexDir;
 import at.petrak.hexcasting.api.casting.math.HexPattern;
 import at.petrak.hexcasting.common.lib.hex.HexActions;
 import com.mindlesstoys.stickia.hexways.Hexways;
 import com.mindlesstoys.stickia.hexways.casting.spells.edit.*;
 import com.mindlesstoys.stickia.hexways.casting.spells.summon.*;
+import com.mindlesstoys.stickia.hexways.casting.spells.summon.interdim.*;
 import com.mindlesstoys.stickia.hexways.casting.spells.info.*;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
@@ -18,9 +20,9 @@ public class PatternRegistry {
     private static final Map<ResourceLocation, ActionRegistryEntry> PATTERNS = new LinkedHashMap<>();
 
     //portal makers
-    public static final ActionRegistryEntry OP_ONE_WAY = make("onewayportal", new ActionRegistryEntry(HexPattern.fromAngles("awqwqwadadadaadadaqwdee", HexDir.EAST), new OpOneWayPortal()));
-    public static final ActionRegistryEntry OP_TWO_WAY = make("twowayportal", new ActionRegistryEntry(HexPattern.fromAngles("wdeeqawqwqwadeaqadeaedaqae", HexDir.WEST), new OpTwoWayPortal()));
-    public static final ActionRegistryEntry OP_SCRY_PORTAL = make("summonscry", new ActionRegistryEntry(HexPattern.fromAngles("eedwwdwewewd", HexDir.NORTH_EAST), new OpScryPortal()));
+    public static final ActionRegistryEntry OP_ONE_WAY = make("onewayportal", new ActionRegistryEntry(HexPattern.fromAngles("awqwqwadadadaadadaqwdee", HexDir.EAST), (Action) (Hexways.isOneironautLoaded() ? new OpOneWayPortalInterdim() : new OpOneWayPortal())));
+    public static final ActionRegistryEntry OP_TWO_WAY = make("twowayportal", new ActionRegistryEntry(HexPattern.fromAngles("wdeeqawqwqwadeaqadeaedaqae", HexDir.WEST), (Action) (Hexways.isOneironautLoaded() ? new OpTwoWayPortalInterdim() : new OpTwoWayPortal())));
+    public static final ActionRegistryEntry OP_SCRY_PORTAL = make("summonscry", new ActionRegistryEntry(HexPattern.fromAngles("eedwwdwewewd", HexDir.NORTH_EAST), (Action) (Hexways.isOneironautLoaded() ? new OpScryPortalInterdim() : new OpScryPortal())));
 
     //portal editors
     public static final ActionRegistryEntry OP_MOVE_IN_PORTAL = make("moveportalinput", new ActionRegistryEntry(HexPattern.fromAngles("qqawwawqwqwaewaw", HexDir.NORTH_EAST), new OpMoveInput()));
