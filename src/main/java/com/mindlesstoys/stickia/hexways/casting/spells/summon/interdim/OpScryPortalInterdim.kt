@@ -3,7 +3,9 @@ package com.mindlesstoys.stickia.hexways.casting.spells.summon.interdim
 import at.petrak.hexcasting.api.casting.*
 import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.eval.env.PlayerBasedCastEnv
 import at.petrak.hexcasting.api.casting.iota.Iota
+import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
 import at.petrak.hexcasting.api.misc.MediaConstants
 import com.mindlesstoys.stickia.hexways.PortalHexUtils
 import com.mindlesstoys.stickia.hexways.PortalHexUtils.Companion.PortalVecRotate
@@ -13,6 +15,7 @@ import net.minecraft.world.phys.Vec3
 import net.minecraft.world.level.Level
 import net.minecraft.resources.ResourceKey
 import net.beholderface.oneironaut.getDimIota
+import net.beholderface.oneironaut.casting.environments.ExtradimensionalCastEnv
 import net.beholderface.oneironaut.casting.iotatypes.DimIota
 import org.joml.Vector3f
 import qouteall.imm_ptl.core.api.PortalAPI
@@ -46,7 +49,15 @@ class OpScryPortalInterdim : VarargSpellAction {
         val prtPos3f = Vector3f(prtPos.x.toFloat(), prtPos.y.toFloat(), prtPos.z.toFloat())
 
         env.assertVecInRange(prtPos)
-        env.assertVecInRange(prtPosOut)
+        
+        if (dest == env.world.dimension()) {
+            env.assertVecInRange(prtPosOut)
+        } else if (env is PlayerBasedCastEnv) {
+            val tempEnv = ExtradimensionalCastEnv(env.caster, env, env.world.server.getLevel(dest), null)
+            tempEnv.assertVecInRange(prtPosOut)
+        } else {
+            throw MishapBadLocation(prtPosOut, "too_far")
+        }
 
         return SpellAction.Result(
             Spell(prtPos3f, prtPosOut, prtRot, prtSize, dest),
