@@ -4,7 +4,9 @@ import at.petrak.hexcasting.api.casting.*
 import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.iota.Iota
+import com.mindlesstoys.stickia.hexways.casting.mishaps.MishapBadDim
 import at.petrak.hexcasting.api.misc.MediaConstants
+import at.petrak.hexcasting.api.mod.HexConfig
 import com.mindlesstoys.stickia.hexways.PortalHexUtils
 import com.mindlesstoys.stickia.hexways.PortalHexUtils.Companion.PortalVecRotate
 import com.mindlesstoys.stickia.hexways.entites.EntityRegistry.HEXPORTAL_ENTITY_TYPE
@@ -22,6 +24,10 @@ class OpScryPortal : SpellAction {
         val prtPosOut: Vec3 = args.getVec3(1,argc)
         val prtRot: Vec3 = args.getVec3(2,argc)
         val prtSize: Double = args.getDoubleBetween(3,1.0/10.0,10.0,argc)
+
+        if (!HexConfig.server().canTeleportInThisDimension(env.world.dimension())) {
+            throw MishapBadDim(env.world.dimension())
+        }
 
         // $ val cost = (prtSize*prtPos.distanceTo(prtPosOut)*MediaConstants.DUST_UNIT/2).toLong()
 
