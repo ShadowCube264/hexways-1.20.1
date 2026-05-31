@@ -14,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Optional;
 
 public class PatternRegistry {
     private static final Map<ResourceLocation, ActionRegistryEntry> PATTERNS = new LinkedHashMap<>();
@@ -30,6 +31,9 @@ public class PatternRegistry {
     public static final ActionRegistryEntry OP_SET_PORTAL_SIDES = make("setportalsides", new ActionRegistryEntry(HexPattern.fromAngles("waqqqadawqadadaq", HexDir.EAST), new OpSetPortalSides()));
     public static final ActionRegistryEntry OP_REMOVE_PORTAL = make("removeportal", new ActionRegistryEntry(HexPattern.fromAngles("wdeeqawqwqwaedaqwqad", HexDir.WEST), new OpRemovePortal()));
     public static final ActionRegistryEntry OP_RESIZE_PORTAL = make("resizeportal", new ActionRegistryEntry(HexPattern.fromAngles("weaqaweewwawqwaw", HexDir.WEST), new OpResizePortal()));
+
+    // $ portal info
+    public static final Optional<ActionRegistryEntry> OP_OUTPUT_DIM = Hexways.isOneironautLoaded() ? Optional.of(make("getoutputdim", new ActionRegistryEntry(HexPattern.fromAngles("wdeeqawqwqwadwaeqqeaw", HexDir.WEST), new OpOutputDim()))) : Optional.empty();
     public static final ActionRegistryEntry OP_OUTPUT_INFO = make("getoutputinfo", new ActionRegistryEntry(HexPattern.fromAngles("waqqedwewewdawdwwwdw", HexDir.EAST), new OpOutputInfo()));
     
     static public void init() {

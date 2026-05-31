@@ -1,0 +1,52 @@
+{
+  "name": "hexways.entry.interdim_portals",
+  "category": "hexcasting:patterns/spells",
+  "icon": "hexcasting:amethyst_dust_block",
+  "sortnum": 0,
+  "advancement": "hexcasting:root",
+  "flag": "mod:oneironaut",
+  "pages": [
+    {
+      "title": "hexways.page.interdim_portals.pageintrotitle",
+      "type": "text",
+      "text": "hexways.page.interdim_portals.pageintro"
+    },
+    {
+      "title": "hexways.page.interdim_portals.portalambittitle",
+      "type": "text",
+      "text": "hexways.page.interdim_portals.portalambit"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:twowayportal",
+      "anchor": "hexways:twowayportal",
+      "input": "vec, vec, vec, num, Imprint",
+      "output": "",
+      "text": "hexways.page.interdim_portals.twowayportal"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:onewayportal",
+      "anchor": "hexways:onewayportal",
+      "input": "vec, vec, vec, num, Imprint",
+      "output": "",
+      "text": "hexways.page.interdim_portals.onewayportal"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:summonscry",
+      "anchor": "hexways:summonscry",
+      "input": "vec, vec, vec, num, Imprint",
+      "output": "",
+      "text": "hexways.page.interdim_portals.summonscry"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:getoutputdim",
+      "anchor": "hexways:getoutputdim",
+      "input": "entity (Portal)",
+      "output": "Imprint",
+      "text": "hexways.page.interdim_portals.getoutputdim"
+    }
+  ]
+}
