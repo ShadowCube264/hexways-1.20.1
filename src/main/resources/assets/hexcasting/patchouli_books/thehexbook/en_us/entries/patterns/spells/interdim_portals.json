@@ -2,12 +2,11 @@
   "name": "hexways.entry.interdim_portals",
   "category": "hexcasting:patterns/spells",
   "icon": "hexcasting:amethyst_dust_block",
-  "sortnum": 0,
+  "sortnum": 265,
   "advancement": "hexcasting:root",
   "flag": "mod:oneironaut",
   "pages": [
     {
-      "title": "hexways.page.interdim_portals.pageintrotitle",
       "type": "text",
       "text": "hexways.page.interdim_portals.pageintro"
     },

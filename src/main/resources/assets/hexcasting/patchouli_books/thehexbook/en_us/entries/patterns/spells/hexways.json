@@ -2,7 +2,7 @@
   "name": "hexways.entry.hexways",
   "category": "hexcasting:patterns/spells",
   "icon": "minecraft:end_portal_frame",
-  "sortnum": 0,
+  "sortnum": 264,
   "advancement": "hexcasting:root",
   "read_by_default": true,
   "pages": [
