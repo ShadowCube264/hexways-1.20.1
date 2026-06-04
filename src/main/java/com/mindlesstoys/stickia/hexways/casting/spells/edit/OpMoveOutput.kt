@@ -20,7 +20,7 @@ class OpMoveOutput : SpellAction {
         val prt: Entity = args.getEntity(0,argc)
         val prtPos: Vec3 = args.getVec3(1,argc)
         if (prt !is HexPortal){
-            throw MishapPortalEntity.of(prt)
+            throw MishapPortalEntity(prt)
         }
         env.assertEntityInRange(prt)
         env.assertVecInRange(prtPos)

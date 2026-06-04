@@ -29,11 +29,4 @@ class MishapPortalEntity(val got: Entity) : Mishap() {
             env.mishapEnvironment.blind(100)
         }
     }
-
-    companion object {
-        @JvmStatic
-        fun of(wantedEntity: Entity): MishapPortalEntity {
-            return MishapPortalEntity(wantedEntity)
-        }
-    }
 }

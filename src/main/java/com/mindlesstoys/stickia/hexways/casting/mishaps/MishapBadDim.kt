@@ -21,7 +21,7 @@ class MishapBadDim(val got: ResourceKey<Level>, val isOtherDim: Boolean = false)
 
     override fun accentColor(ctx: CastingEnvironment, errorCtx: Context): FrozenPigment = dyeColor(DyeColor.ORANGE) //*fancy*
     override fun errorMessage(ctx: CastingEnvironment, errorCtx: Context) = error(
-        "hexways_bad_dim",
+        "hexways.bad_dim",
         got.location().toString().red
     )
 
@@ -31,13 +31,6 @@ class MishapBadDim(val got: ResourceKey<Level>, val isOtherDim: Boolean = false)
         }
         if (isOtherDim) {
             stack[stack.size - 1] = GarbageIota()
-        }
-    }
-
-    companion object {
-        @JvmStatic
-        fun of(errDim: ResourceKey<Level>): MishapBadDim {
-            return MishapBadDim(errDim)
         }
     }
 }
