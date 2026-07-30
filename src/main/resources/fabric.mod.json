@@ -44,7 +44,8 @@
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*",
 		"hexcasting": "*",
-		"immersive_portals": "*"
+		"immersive_portals": "*",
+		"cloth-config": "*"
 	},
 	"suggests": {
 		"oneironaut": "*"

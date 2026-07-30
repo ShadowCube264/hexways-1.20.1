@@ -10,19 +10,25 @@ import at.petrak.hexcasting.api.mod.HexConfig
 import com.mindlesstoys.stickia.hexways.PortalHexUtils
 import com.mindlesstoys.stickia.hexways.PortalHexUtils.Companion.PortalVecRotate
 import com.mindlesstoys.stickia.hexways.entites.EntityRegistry.HEXPORTAL_ENTITY_TYPE
+import com.mindlesstoys.stickia.hexways.HexwaysConfig
 import net.minecraft.world.phys.Vec3
 import org.joml.Vector3f
 import qouteall.imm_ptl.core.api.PortalAPI
 import qouteall.imm_ptl.core.portal.Portal
+import me.shedaniel.autoconfig.AutoConfig
 
 class OpOneWayPortal : SpellAction {
     override val argc = 4
 
     override fun execute(args: List<Iota>, env: CastingEnvironment): SpellAction.Result {
+        val config = AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!
+        val min = config.minPortalSize
+        val max = config.maxPortalSize
+
         val prtPos: Vec3 = args.getVec3(0,argc)
         val prtPosOut: Vec3 = args.getVec3(1,argc)
         val prtRot: Vec3 = args.getVec3(2,argc)
-        val prtSize: Double = args.getDoubleBetween(3,1.0/10.0,10.0,argc)
+        val prtSize: Double = args.getDoubleBetween(3, min, max, argc)
 
         if (!HexConfig.server().canTeleportInThisDimension(env.world.dimension())) {
             throw MishapBadDim(env.world.dimension())

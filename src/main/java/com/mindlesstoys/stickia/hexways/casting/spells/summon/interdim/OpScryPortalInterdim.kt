@@ -13,6 +13,7 @@ import com.mindlesstoys.stickia.hexways.PortalHexUtils
 import com.mindlesstoys.stickia.hexways.PortalHexUtils.Companion.PortalVecRotate
 import com.mindlesstoys.stickia.hexways.entites.EntityRegistry.HEXPORTAL_ENTITY_TYPE
 import com.mindlesstoys.stickia.hexways.entites.HexPortal
+import com.mindlesstoys.stickia.hexways.HexwaysConfig
 import net.minecraft.world.phys.Vec3
 import net.minecraft.world.level.Level
 import net.minecraft.resources.ResourceKey
@@ -23,6 +24,7 @@ import org.joml.Vector3f
 import qouteall.imm_ptl.core.api.PortalAPI
 import qouteall.imm_ptl.core.portal.Portal
 import ram.talia.hexal.api.casting.castables.VarargSpellAction
+import me.shedaniel.autoconfig.AutoConfig
 
 class OpScryPortalInterdim : VarargSpellAction {
     
@@ -31,10 +33,14 @@ class OpScryPortalInterdim : VarargSpellAction {
     }
 
     override fun execute(args: List<Iota>, argc: Int, env: CastingEnvironment): SpellAction.Result {
+        val config = AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!
+        val min = config.minPortalSize
+        val max = config.maxPortalSize
+
         val prtPos: Vec3 = args.getVec3(0,argc)
         val prtPosOut: Vec3 = args.getVec3(1,argc)
         val prtRot: Vec3 = args.getVec3(2,argc)
-        val prtSize: Double = args.getDoubleBetween(3,1.0/10.0,10.0,argc)
+        val prtSize: Double = args.getDoubleBetween(3, min, max, argc)
         var dest: ResourceKey<Level> = env.world.dimension()
 
         if (argc == 5) {

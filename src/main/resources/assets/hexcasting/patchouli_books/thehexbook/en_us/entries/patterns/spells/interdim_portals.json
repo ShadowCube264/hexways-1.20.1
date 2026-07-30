@@ -4,7 +4,7 @@
   "icon": "hexcasting:amethyst_dust_block",
   "sortnum": 265,
   "advancement": "hexcasting:root",
-  "flag": "mod:oneironaut",
+  "flag": "hexways:oneironaut_loaded",
   "pages": [
     {
       "type": "text",
