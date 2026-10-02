@@ -9,6 +9,8 @@ import com.mindlesstoys.stickia.hexways.casting.spells.edit.*;
 import com.mindlesstoys.stickia.hexways.casting.spells.summon.*;
 import com.mindlesstoys.stickia.hexways.casting.spells.summon.interdim.*;
 import com.mindlesstoys.stickia.hexways.casting.spells.info.*;
+import com.mindlesstoys.stickia.hexways.casting.spells.upkeep.OpAddFuelPortal;
+import com.mindlesstoys.stickia.hexways.casting.spells.upkeep.OpGetPortalFuel;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 
@@ -35,7 +37,11 @@ public class PatternRegistry {
     // $ portal info
     public static final Optional<ActionRegistryEntry> OP_OUTPUT_DIM = Hexways.isOneironautLoaded() ? Optional.of(make("getoutputdim", new ActionRegistryEntry(HexPattern.fromAngles("wdeeqawqwqwadwaeqqeaw", HexDir.WEST), new OpOutputDim()))) : Optional.empty();
     public static final ActionRegistryEntry OP_OUTPUT_INFO = make("getoutputinfo", new ActionRegistryEntry(HexPattern.fromAngles("waqqedwewewdawdwwwdw", HexDir.EAST), new OpOutputInfo()));
-    
+
+    // portal upkeep
+    public static final Optional<ActionRegistryEntry> OP_GET_PORTAL_FUEL = Hexways.INSTANCE.getConfig().enablePortalUpkeep ? Optional.of(make("getportalfuel",new ActionRegistryEntry(HexPattern.fromAngles("awqwqwaeddeweddqqq",HexDir.EAST), new OpGetPortalFuel()))): Optional.empty();
+    public static final Optional<ActionRegistryEntry> OP_ADD_PORTAL_FUEL = Hexways.INSTANCE.getConfig().enablePortalUpkeep ? Optional.of(make("addportalfuel",new ActionRegistryEntry(HexPattern.fromAngles("awqwqwawwaqqqqqwaeaeaeaeaea",HexDir.EAST), new OpAddFuelPortal()))): Optional.empty();
+
     static public void init() {
         for (Map.Entry<ResourceLocation, ActionRegistryEntry> entry : PATTERNS.entrySet()) {
             Registry.register(HexActions.REGISTRY, entry.getKey(), entry.getValue());

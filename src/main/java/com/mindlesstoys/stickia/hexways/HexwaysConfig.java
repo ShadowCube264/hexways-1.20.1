@@ -8,4 +8,7 @@ public class HexwaysConfig implements ConfigData {
     boolean enableOneironautCompat = true;
     public double minPortalSize = 0.1;
     public double maxPortalSize = 10.0;
+    public boolean enablePortalUpkeep = false;
+    public float portalBaseUptime = 5.0f;
+    public float ritualPortalUpkeepMultiplier = 0.1f;
 }

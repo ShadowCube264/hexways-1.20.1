@@ -3,10 +3,12 @@ package com.mindlesstoys.stickia.hexways.casting.spells.summon
 import at.petrak.hexcasting.api.casting.*
 import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.eval.env.CircleCastEnv
 import at.petrak.hexcasting.api.casting.iota.Iota
 import com.mindlesstoys.stickia.hexways.casting.mishaps.MishapBadDim
 import at.petrak.hexcasting.api.misc.MediaConstants
 import at.petrak.hexcasting.api.mod.HexConfig
+import com.mindlesstoys.stickia.hexways.Hexways
 import com.mindlesstoys.stickia.hexways.PortalHexUtils
 import com.mindlesstoys.stickia.hexways.PortalHexUtils.Companion.PortalVecRotate
 import com.mindlesstoys.stickia.hexways.entites.EntityRegistry.HEXPORTAL_ENTITY_TYPE
@@ -41,22 +43,24 @@ class OpScryPortal : SpellAction {
         val distance = prtPos.distanceTo(prtPosOut)
         val cost = ((8 * (Math.log(distance / 8 + 1))).toLong() + 16) * MediaConstants.DUST_UNIT
 
+        val prtFuel: Long = if (config.enablePortalUpkeep) cost else 0
+
         val prtPos3f = Vector3f(prtPos.x.toFloat(), prtPos.y.toFloat(), prtPos.z.toFloat())
 
         env.assertVecInRange(prtPos)
         env.assertVecInRange(prtPosOut)
 
         return SpellAction.Result(
-            Spell(prtPos3f,prtPosOut,prtRot, prtSize),
+            Spell(prtPos3f,prtPosOut,prtRot, prtSize, config.enablePortalUpkeep, prtFuel,env is CircleCastEnv),
             cost,
             listOf(ParticleSpray.burst(env.mishapSprayPos(), 1.0), ParticleSpray.burst(prtPos, 1.0))
         )
 
     }
 
-    data class Spell(val prtPos: Vector3f, val prtPosOut: Vec3, val prtRot: Vec3, val prtSize: Double) : RenderedSpell {
+    data class Spell(val prtPos: Vector3f, val prtPosOut: Vec3, val prtRot: Vec3, val prtSize: Double, val prtUpkeep: Boolean, val prtFuel: Long, val prtEfficient: Boolean) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
-            val portalIn: Portal? = HEXPORTAL_ENTITY_TYPE.create(env.world)
+            val portalIn: HexPortal? = HEXPORTAL_ENTITY_TYPE.create(env.world)
 
             portalIn!!.originPos = Vec3(prtPos)
             portalIn.setDestinationDimension(env.world.dimension())
@@ -70,8 +74,8 @@ class OpScryPortal : SpellAction {
             PortalHexUtils.MakePortalNGon(portalIn,6 ,0.0)
 
             val portalInOp = PortalAPI.createFlippedPortal(portalIn)
-            portalIn as HexPortal
-            portalInOp as HexPortal
+            //portalIn as HexPortal
+            //portalInOp as HexPortal
 
             portalIn.ambitTraversable = false
             portalInOp.ambitTraversable = false
@@ -84,6 +88,12 @@ class OpScryPortal : SpellAction {
 
             portalIn.originWorld.addFreshEntity(portalIn)
             portalIn.originWorld.addFreshEntity(portalInOp)
+
+            if (prtUpkeep and AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.enablePortalUpkeep) {
+                portalIn.mediaReserve = prtFuel
+                portalIn.setMediaUpkeepBase(prtFuel/(20*AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.portalBaseUptime))
+                portalIn.setMediaUpkeepMultiplier(if (prtEfficient) AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.ritualPortalUpkeepMultiplier else 1f)
+            }
         }
     }
 }

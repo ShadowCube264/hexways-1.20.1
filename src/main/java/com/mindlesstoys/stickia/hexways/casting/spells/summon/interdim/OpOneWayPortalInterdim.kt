@@ -3,6 +3,7 @@ package com.mindlesstoys.stickia.hexways.casting.spells.summon.interdim
 import at.petrak.hexcasting.api.casting.*
 import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
+import at.petrak.hexcasting.api.casting.eval.env.CircleCastEnv
 import at.petrak.hexcasting.api.casting.eval.env.PlayerBasedCastEnv
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.casting.mishaps.MishapBadLocation
@@ -13,6 +14,7 @@ import com.mindlesstoys.stickia.hexways.PortalHexUtils
 import com.mindlesstoys.stickia.hexways.PortalHexUtils.Companion.PortalVecRotate
 import com.mindlesstoys.stickia.hexways.entites.EntityRegistry.HEXPORTAL_ENTITY_TYPE
 import com.mindlesstoys.stickia.hexways.HexwaysConfig
+import com.mindlesstoys.stickia.hexways.entites.HexPortal
 import net.minecraft.world.phys.Vec3
 import net.minecraft.world.level.Level
 import net.minecraft.resources.ResourceKey
@@ -59,6 +61,8 @@ class OpOneWayPortalInterdim : VarargSpellAction {
         val distance = prtPos.distanceTo(prtPosOut)
         val cost = ((32 * (Math.log(distance / 16 + 1))).toLong() + 32) * MediaConstants.DUST_UNIT
 
+        val prtFuel: Long = if (config.enablePortalUpkeep) cost else 0
+
         val prtPos3f = Vector3f(prtPos.x.toFloat(), prtPos.y.toFloat(), prtPos.z.toFloat())
 
         env.assertVecInRange(prtPos)
@@ -73,16 +77,16 @@ class OpOneWayPortalInterdim : VarargSpellAction {
         }
 
         return SpellAction.Result(
-            Spell(prtPos3f, prtPosOut, prtRot, prtSize, dest),
+            Spell(prtPos3f, prtPosOut, prtRot, prtSize, dest,config.enablePortalUpkeep, prtFuel, env is CircleCastEnv),
             cost,
             listOf(ParticleSpray.burst(env.mishapSprayPos(), 1.0),ParticleSpray.burst(prtPos, 1.0))
         )
 
     }
 
-    data class Spell(val prtPos: Vector3f, val prtPosOut: Vec3, val prtRot: Vec3, val prtSize: Double, val prtDim: ResourceKey<Level>) : RenderedSpell {
+    data class Spell(val prtPos: Vector3f, val prtPosOut: Vec3, val prtRot: Vec3, val prtSize: Double, val prtDim: ResourceKey<Level>, val prtUpkeep: Boolean, val prtFuel: Long, val prtEfficient: Boolean) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
-            val portalIn: Portal? = HEXPORTAL_ENTITY_TYPE.create(env.world)
+            val portalIn: HexPortal? = HEXPORTAL_ENTITY_TYPE.create(env.world)
 
             portalIn!!.originPos = Vec3(prtPos)
             portalIn.setDestinationDimension(prtDim)
@@ -101,6 +105,12 @@ class OpOneWayPortalInterdim : VarargSpellAction {
             
             portalIn.originWorld.addFreshEntity(portalInOp)
             portalIn.originWorld.addFreshEntity(portalIn)
+
+            if (prtUpkeep and AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.enablePortalUpkeep) {
+                portalIn.mediaReserve = prtFuel
+                portalIn.setMediaUpkeepBase(prtFuel/(20*AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.portalBaseUptime))
+                portalIn.setMediaUpkeepMultiplier(if (prtEfficient) AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.ritualPortalUpkeepMultiplier else 1f)
+            }
         }
     }
 }

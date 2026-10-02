@@ -41,6 +41,35 @@
       "text": "hexways.page.hexways.summonscry"
     },
     {
+      "title": "hexways.page.hexways.portalupkeeptitle",
+      "type": "text",
+      "text": "hexways.page.hexways.portalupkeep",
+      "flag": "hexways:enable_portal_upkeep"
+    },
+    {
+      "type": "text",
+      "text": "hexways.page.hexways.portalupkeepcont",
+      "flag": "hexways:enable_portal_upkeep"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:addportalfuel",
+      "anchor": "hexways:addportalfuel",
+      "input": "entity (Portal), num",
+      "output": "",
+      "text": "hexways.page.hexways.addportalfuel",
+      "flag": "hexways:enable_portal_upkeep"
+    },
+    {
+      "type": "hexcasting:pattern",
+      "op_id": "hexways:getportalfuel",
+      "anchor": "hexways:getportalfuel",
+      "input": "entity (Portal)",
+      "output": "num",
+      "text": "hexways.page.hexways.getportalfuel",
+      "flag": "hexways:enable_portal_upkeep"
+    },
+    {
       "type": "hexcasting:pattern",
       "op_id": "hexways:rotateportal",
       "anchor": "hexways:rotateportal",

@@ -16,6 +16,9 @@
   "hexcasting.mishap.hexways.lemons": "'I don't want your damn lemons! What am I supposed to do with these?'",
   "hexcasting.mishap.hexways.lemons2": "'Do you know who I am? I'm the %s who's going to burn your house down! With the lemons!'",
 
+  "hexcasting.action.hexways:addportalfuel": "Refuel Portal",
+  "hexcasting.action.hexways:getportalfuel": "Wheatley's Purification",
+
   "hexways.entry.hexways": "Hex Ways",
   "hexways.page.hexways.onewayportal": "Accepts the arguments of 2-way portal, but constructs a portal restricted to unilateral traversal. Strangely, Nature offers no discount for this lesser portal.",
   "hexways.page.hexways.twowayportal": "Accepts a vector for the portal's input, one for output, a third for rotation, and a number for its initial radius. Costs increase logarithmically with distance.",
@@ -41,5 +44,11 @@
   "hexways.page.interdim_portals.twowayportal": "As the $(l:patterns/spells/hexways#hexways:twowayportal)regular variant/$, with an additional Imprint of the target dimension.",
   "hexways.page.interdim_portals.onewayportal": "As the $(l:patterns/spells/hexways#hexways:onewayportal)regular variant/$, with an additional Imprint of the target dimension.",
   "hexways.page.interdim_portals.summonscry": "As the $(l:patterns/spells/hexways#hexways:summonscry)regular variant/$, with an additional Imprint of the target dimension.",
-  "hexways.page.interdim_portals.getoutputdim": "Accepts a portal entity, and returns a Spatial Imprint representing its destination world. $(br)$(br)Does $(l)not/$ accept lemons."
+  "hexways.page.interdim_portals.getoutputdim": "Accepts a portal entity, and returns a Spatial Imprint representing its destination world. $(br)$(br)Does $(l)not/$ accept lemons.",
+
+  "hexways.page.hexways.portalupkeeptitle": "Portal Upkeep",
+  "hexways.page.hexways.portalupkeep": "The World dislikes my tampering on the smoothness of spacetime. Any portal I summon will stay for only roughly 5 seconds before collapsing upon itself, the media I invested leaking out of it. Fortunately, I can invest additional media to hold it open, but the media consumption seems proportional to the initial cost of the portal.",
+  "hexways.page.hexways.portalupkeepcont": "Frustratingly, moving my portals will also add to the upkeep cost of them, making them less stable as I move them along.$(br2)According to my theories... if the summoner of a portal were anchored in the world somehow, the stability of the portal would be improved tenfold, needing much less media to maintain. I wonder...",
+  "hexways.page.hexways.addportalfuel": "Accepts the portal I wish to maintain, and how much media I am willing to feed into it as the equivalent amount of dust. The media will go into the internal reserve of the portal.",
+  "hexways.page.hexways.getportalfuel": "Returns the amount of media currently in the holding the portal open. Once this amount reaches 0, the portal will collapse"
 }

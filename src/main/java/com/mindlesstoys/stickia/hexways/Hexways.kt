@@ -17,7 +17,7 @@ object Hexways : ModInitializer {
     public final val LOGGER = LoggerFactory.getLogger("hexways")
 	const val MOD_ID = "hexways"
 	private var oneironautLoaded = false
-	private var config: HexwaysConfig? = null
+	public var config: HexwaysConfig? = null
 
 	// $ Some of the original comments are brilliant, starting mine with a '$' so you can tell them apart :) - Shadow
 
@@ -32,6 +32,7 @@ object Hexways : ModInitializer {
 		PatternRegistry.init()
 		EntityRegistry.init()
 		PatchouliAPI.get().setConfigFlag("hexways:oneironaut_loaded", isOneironautLoaded())
+		PatchouliAPI.get().setConfigFlag("hexways:enable_portal_upkeep",config!!.enablePortalUpkeep)
 
 		//custom ambit with no mixins lets go!
 		CastingEnvironment.addCreateEventListener { env: CastingEnvironment ->

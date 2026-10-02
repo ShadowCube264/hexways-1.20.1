@@ -5,11 +5,14 @@ import at.petrak.hexcasting.api.casting.castables.SpellAction
 import at.petrak.hexcasting.api.casting.eval.CastingEnvironment
 import at.petrak.hexcasting.api.casting.iota.Iota
 import at.petrak.hexcasting.api.misc.MediaConstants
+import com.mindlesstoys.stickia.hexways.HexwaysConfig
 import com.mindlesstoys.stickia.hexways.casting.mishaps.MishapPortalEntity
 import com.mindlesstoys.stickia.hexways.entites.HexPortal
 import net.minecraft.world.entity.Entity
 import net.minecraft.world.phys.Vec3
 import com.mindlesstoys.stickia.hexways.PortalHexUtils.Companion.moveOrSetPrt
+import com.mindlesstoys.stickia.hexways.casting.spells.edit.OpMoveInput.Spell
+import me.shedaniel.autoconfig.AutoConfig
 import qouteall.imm_ptl.core.portal.Portal
 import qouteall.imm_ptl.core.portal.PortalManipulation
 
@@ -37,14 +40,14 @@ class OpMoveOutput : SpellAction {
         }
 
         return SpellAction.Result(
-            Spell(prt,prtPos),
+            Spell(prt,prtPos,AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.enablePortalUpkeep,cost),
             cost,
             listOf(ParticleSpray.burst(env.mishapSprayPos(), 1.0))
         )
 
     }
 
-    data class Spell(val prt: HexPortal, val pos: Vec3) : RenderedSpell {
+    data class Spell(val prt: HexPortal, val pos: Vec3, val prtUpkeep: Boolean, val addedCost: Long) : RenderedSpell {
         override fun cast(env: CastingEnvironment) {
             var portalOutOp: Portal? = null
             val portalInOp = PortalManipulation.findFlippedPortal(prt)
@@ -56,6 +59,10 @@ class OpMoveOutput : SpellAction {
             moveOrSetPrt(portalInOp,pos,true)
             moveOrSetPrt(portalOut,pos,false)
             moveOrSetPrt(portalOutOp,pos,false)
+
+            if (prtUpkeep) {
+                prt.mediaUpkeepBase += addedCost/(20*AutoConfig.getConfigHolder(HexwaysConfig::class.java).getConfig()!!.portalBaseUptime)
+            }
         }
     }
 }
